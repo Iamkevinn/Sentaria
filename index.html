@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SENTARIA | Aprendizaje socioemocional jugando</title>
+    <meta name="description"
+        content="SENTARIA combina aprendizaje socioemocional, juego y acompañamiento educativo para niños y niñas de primaria.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;800;900&family=Gochi+Hand&family=Chewy&display=swap">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/cards.css">
+    <link rel="stylesheet" href="styles/content.css">
+    <link rel="stylesheet" href="styles/loader.css">
+    <link rel="stylesheet" href="styles/aula.css">
+    <link rel="stylesheet" href="styles/formula.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/competencias.css">
+    <link rel="stylesheet" href="styles/sections.css">
+    <link rel="stylesheet" href="styles/ruta-cabecera.css">
+    <link rel="stylesheet" href="styles/cab.css">
+    <link rel="stylesheet" href="styles/scroll-3d.css">
+    <noscript>
+        <style>
+            #loader {
+                display: none
+            }
+        </style>
+    </noscript>
+</head>
+
+<body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="crayon" x="-5%" y="-10%" width="110%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="2" seed="2" result="w" />
+            <feDisplacementMap in="SourceGraphic" in2="w" scale="4" result="d" />
+            <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="7" result="g" />
+            <feColorMatrix in="g" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.2 1.7" result="m" />
+            <feComposite in="d" in2="m" operator="in" />
+        </filter>
+        <filter id="clay" x="-5%" y="-10%" width="110%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="5" result="n" />
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="5" result="d" />
+            <feGaussianBlur in="d" stdDeviation="2" result="b" />
+            <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3" result="t" />
+            <feComposite in="b" in2="t" operator="arithmetic" k1="0" k2="1" k3=".1" k4="0" result="h" />
+            <feSpecularLighting in="h" surfaceScale="5" specularConstant=".8" specularExponent="20"
+                lighting-color="#fff" result="s">
+                <feDistantLight azimuth="225" elevation="45" />
+            </feSpecularLighting>
+            <feComposite in="s" in2="d" operator="in" result="sp" />
+            <feComposite in="d" in2="sp" operator="arithmetic" k1="0" k2="1" k3=".9" k4="0" />
+        </filter>
+    </svg>
+    <div id="loader" role="status" aria-label="Cargando SENTARIA">
+        <div class="stage" id="stage">
+            <img class="mark" id="mark" src="media/best_logo.png" alt="">
+            <div class="letters" id="letters">
+                <img src="media/letras/s.png" alt=""><img src="media/letras/e.png" alt=""><img src="media/letras/n.png"
+                    alt=""><img src="media/letras/t.png" alt=""><img style="width: 2px;" src="media/letras/a.png"
+                    alt=""><img src="media/letras/r.png" alt=""><img src="media/letras/i.png" alt=""><img
+                    src="media/letras/a_final.png" alt="">
+            </div>
+            <img class="dice" id="dice" src="media/dado.svg" alt="">
+        </div>
+        <button class="skip" id="skip" type="button">Saltar</button>
+    </div>
+    <header class="top">
+        <a class="logo" href="#inicio" aria-label="SENTARIA, inicio"><img src="media/Logo_texto_2.png" alt="SENTARIA"></a>
+        <button class="burger" aria-expanded="false" aria-controls="menu">Menú</button>
+        <nav id="menu">
+            <div class="links"><a href="#quienes">Quiénes somos</a><a href="#mision">Misión y visión</a><a
+                    href="#como">Cómo funciona</a><a href="#proyeccion">Proyección social</a><a
+                    href="#contacto">Contacto</a></div>
+            <a class="nav-aula" href="#aula">Aula</a>
+        </nav>
+    </header>
+    <main>
+        <section id="inicio" class="hero">
+            <svg class="doodle" aria-hidden="true">
+                <defs>
+                    <path id="st" d="M0-20l6 14 15 1.5-11.5 10 3.5 15-13-8-13 8 3.5-15-11.5-10 15-1.5z" />
+                    <path id="ht" d="M0 18C-24 2-18-18-6-18-1-18 0-12 0-10 0-12 1-18 6-18 18-18 24 2 0 18z" />
+                    <path id="cl" d="M-30 14h54a14 14 0 000-28 20 20 0 00-38-5 17 17 0 00-16 33z" />
+                    <g id="dc">
+                        <rect x="-17" y="-17" width="34" height="34" rx="8" />
+                        <circle cx="-6" cy="-6" r="2.5" />
+                        <circle cx="6" cy="6" r="2.5" />
+                        <circle cx="6" cy="-6" r="2.5" />
+                        <circle cx="-6" cy="6" r="2.5" />
+                    </g>
+                    <path id="sw" d="M0 0a4 4 0 018 0 9 9 0 01-18 0 15 15 0 0130 0 21 21 0 01-42 0" />
+                    <path id="pl" d="M0-9v18M-9 0h18" />
+                    <pattern id="dp" width="520" height="460" patternUnits="userSpaceOnUse"
+                        patternTransform="rotate(8)">
+                        <g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <use href="#st" transform="translate(70 60) rotate(-10)" />
+                            <use href="#ht" transform="translate(300 50) rotate(12) scale(.9)" />
+                            <use href="#cl" transform="translate(445 160)" />
+                            <use href="#dc" transform="translate(165 195) rotate(-15)" />
+                            <use href="#sw" transform="translate(365 305)" />
+                            <use href="#ht" transform="translate(55 335) rotate(-8) scale(.8)" />
+                            <use href="#dc" transform="translate(265 415) rotate(12) scale(.9)" />
+                            <use href="#st" transform="translate(470 410) rotate(15) scale(.7)" />
+                            <use href="#pl" transform="translate(215 320)" />
+                        </g>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#dp)" />
+            </svg>
+            <div class="wrap hero-grid">
+                <div class="hero-txt">
+                    <div class="frase" role="heading" aria-level="2"
+                        aria-label="Jugando aprendemos a reconocer, comprender y regular nuestras emociones">
+                        <div class="f1">
+                            <span>
+                                <span class="jugando-subrayado">Jugando</span> aprendemos a:
+                            </span>
+                        </div>
+                        <div class="rot" aria-hidden="true">
+                            <div class="slide on">
+                                <p class="gr crayon">reconocer</p>
+                            </div>
+                            <div class="slide">
+                                <div class="row">
+                                    <p class="gr cut">comprender</p>
+
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <p class="gr clay">regular nuestras emociones</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="hero-art">
+                    <div class="avatar-card">
+                        <img class="hero-icon hero-icon-palette"
+                            src="media/content/3dicons-color-palette-dynamic-color.png" alt="" aria-hidden="true">
+
+                        <div class="avatar-personaje">
+                            <img class="logo-hero" src="media/content/3d-rendering-avatar.png"
+                                alt="Personaje de SENTARIA">
+                        </div>
+
+                        <img class="hero-icon hero-icon-zoom" src="media/content/3dicons-zoom-dynamic-color.png" alt=""
+                            aria-hidden="true">
+                    </div>
+                </div>
+            </div>
+
+            <a class="btn hero-project-btn" href="#aula">
+                Conoce nuestro proyecto
+                <span class="btn-arrow" aria-hidden="true">↓</span>
+            </a>
+        </section>
+
+        <section class="quick">
+            <div class="wrap">
+                <a class="qc" href="#mision">
+                    <h3><span class="num">1</span>Nuestra misión</h3>
+                    <p>Programas de educación socioemocional con fundamentos psicológicos y experiencias lúdicas.</p>
+                    <img class="qc-ico" src="media/corazon.png" alt="">
+                </a>
+                <a class="qc" href="#aula">
+                    <h3><span class="num">2</span>Aula Sentaria</h3>
+                    <p>Espacios de aprendizaje para reconocer emociones y pensamientos, además de desarrollar
+                        habilidades de regulación emocional.</p>
+                    <img class="qc-ico" src="media/estrella.png" alt="">
+                </a>
+                <a class="qc qc-carton" href="#como">
+                    <h3><span class="num">3</span>Cómo funciona</h3>
+                    <p>Cada colegio tiene necesidades diferentes. Por eso, estudiamos su contexto, adaptamos nuestra
+                        metodología y acompañamos todo el proceso.</p>
+                    <img class="qc-ico" src="media/dado.png" alt="">
+                </a>
+            </div>
+        </section>
+
+        <section id="quienes" class="story-section">
+            <div class="wrap story-layout">
+                <div class="story-copy content-reveal">
+                    <span class="section-kicker">EL ORIGEN DE SENTARIA</span>
+                    <h2>Una idea que nació <span class="hand-underline">jugando</span></h2>
+                    <p>
+                        En experiencias recreativas con niños y niñas, descubrimos la importancia de <span
+                            class="story-lead">aprender a gestionar emociones y construir relaciones saludables</span>.
+                    </p>
+                    <p>
+                        Estas observaciones despertaron el interés por comprender cómo se desarrollan las habilidades
+                        socioemocionales durante la infancia y cómo el juego podría utilizarse para favorecer su
+                        aprendizaje.
+                    </p>
+                    <!-- Reemplaza únicamente el párrafo "Psicologia + Educación + Recreación = SENTARIA" por este bloque. -->
+                    <div class="story-equation" role="img"
+                        aria-label="Psicología más Educación más Recreación es SENTARIA">
+                        <div class="story-equation-terms">
+                            <span class="story-equation-term story-equation-psych">Psicología</span>
+                            <span class="story-equation-plus" aria-hidden="true">+</span>
+                            <span class="story-equation-term story-equation-edu">Educación</span>
+                            <span class="story-equation-plus" aria-hidden="true">+</span>
+                            <span class="story-equation-term story-equation-play">Recreación</span>
+                        </div>
+                        <div class="story-equation-result">
+                            <span class="story-equation-equals" aria-hidden="true">=</span>
+                            <span  class="logo"><img style="height: 20px !important;" src="media/Logo_texto_2.png" alt="SENTARIA"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="story-visual parallax-scene content-reveal" aria-hidden="true">
+                    <div class="story-paper">
+                        <span class="paper-caption">UNA IDEA PARA APRENDER</span>
+                        <p>Jugar también es<br><strong>descubrir, sentir<br>y aprender.</strong></p>
+                    </div>
+                    <img class="section-object story-notebook" src="media/content/3dicons-notebook-dynamic-color.png"
+                        alt="">
+                    <img class="section-object story-pencil" src="media/content/3dicons-pencil-dynamic-color.png"
+                        alt="">
+                </div>
+            </div>
+        </section>
+
+        <section id="mision" class="mission-section">
+            <div class="wrap">
+                <div class="mission-pair">
+                    <article class="mission-block content-reveal">
+                        <span class="section-kicker">01 / PROPÓSITO</span>
+                        <h2>Nuestra misión</h2>
+                        <p>
+                            Diseñar programas de educación socioemocional que integren fundamentos psicológicos,
+                            experiencias lúdicas y recursos pedagógicos para facilitar el aprendizaje de habilidades
+                            emocionales en niños y niñas de primaria, acompañando a las instituciones educativas y a sus
+                            docentes.
+                        </p>
+                    </article>
+
+                    <article class="vision-block parallax-scene content-reveal">
+                        <span class="section-kicker">02 / HORIZONTE</span>
+                        <h3>Nuestra visión</h3>
+                        <p>
+                            Consolidar a SENTARIA como un emprendimiento educativo sostenible, ampliar progresivamente
+                            sus
+                            programas a diferentes grados de primaria y, mediante su crecimiento y alianzas, llegar a
+                            colegios
+                            públicos, fundaciones y comunidades con mayores barreras de acceso.
+                        </p>
+                        <img class="section-object vision-pencil" src="media/content/3dicons-pencil-dynamic-color.png"
+                            alt="" aria-hidden="true">
+                    </article>
+                </div>
+
+                <div class="competency-section competency-section-open">
+                    <div class="competency-heading competency-open-heading content-reveal">
+                        <div>
+                            <span class="section-kicker">LO QUE APRENDEMOS</span>
+                            <h3>Habilidades socioemocionales para la vida</h3>
+                        </div>
+                        <p> Referencia: Las cinco competencias de aprendizaje socioemocional de CASEL.</p>
+                    </div>
+
+                    <ol class="competency-open-list">
+                        <li class="skill-item skill-item-awareness content-reveal">
+                            <div class="skill-item-top">
+                                <span class="skill-number">01</span>
+                            </div>
+                            <h4>Autoconciencia</h4>
+                            <p class="skill-question">¿Qué siento y pienso?</p>
+                            <p class="skill-description">Reconocer nuestras emociones, pensamientos y características
+                                personales.</p>
+                        </li>
+
+                        <li class="skill-item skill-item-management content-reveal">
+                            <div class="skill-item-top">
+                                <span class="skill-number">02</span>
+                                <span class="skill-start-label">¡Aquí comenzamos!</span>
+                            </div>
+                            <h4>Autogestión</h4>
+                            <p class="skill-question">¿Cómo puedo regularme?</p>
+                            <p class="skill-description">Manejar nuestras emociones, pensamientos y comportamientos en
+                                diferentes situaciones.</p>
+                        </li>
+
+                        <li class="skill-item skill-item-social content-reveal">
+                            <div class="skill-item-top">
+                                <span class="skill-number">03</span>
+                            </div>
+                            <h4>Conciencia social</h4>
+                            <p class="skill-question">¿Qué sienten los demás?</p>
+                            <p class="skill-description">Comprender y respetar las perspectivas y experiencias de otras
+                                personas.</p>
+                        </li>
+
+                        <li class="skill-item skill-item-relationships content-reveal">
+                            <div class="skill-item-top">
+                                <span class="skill-number">04</span>
+                            </div>
+                            <h4>Habilidades para relacionarse</h4>
+                            <p class="skill-question">¿Cómo nos relacionamos?</p>
+                            <p class="skill-description">Comunicarnos, colaborar y construir relaciones saludables.</p>
+                        </li>
+
+                        <li class="skill-item skill-item-decisions content-reveal">
+                            <div class="skill-item-top">
+                                <span class="skill-number">05</span>
+                            </div>
+                            <h4>Toma de decisiones responsable</h4>
+                            <p class="skill-question">¿Qué consecuencias puede tener?</p>
+                            <p class="skill-description">Considerar las consecuencias de nuestras acciones y elegir
+                                alternativas que favorezcan el bienestar propio y colectivo.</p>
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="aula" class="s-pizarra">
+            <div class="s-wrap s-piz-grid">
+                <div class="s-piz-main s-rv">
+                    <p class="s-kicker">Nuestra propuesta educativa</p>
+                    <h2 class="s-title s-chalk">SENTARIA Aula</h2>
+                    <p class="s-piz-lead">
+                        Un programa para cuarto de primaria.
+                    </p>
+                    <p>
+                        Los estudiantes reconocen sus emociones y pensamientos,
+                        luego, practican estrategias de regulación.
+                    </p>
+                    <p class="s-estado">En desarrollo</p>
+                    <div class="s-program-stamp" aria-label="Cuarto de primaria: aprender a regular">
+                        <strong>4°</strong>
+                        <span>PRIMARIA</span>
+                        <small>APRENDER A REGULAR</small>
+                    </div>
+
+                </div>
+
+                <div class="s-piz-side s-rv" style="--d:.12s">
+
+                    <ul class="s-datos">
+                        <li class="s-dato s-dato-main">
+                            <img class="s-ico s-ico-cal" src="media/content/3dicons-calendar-dynamic-color.png" alt=""
+                                aria-hidden="true" loading="lazy" onerror="this.remove()">
+                            <div>
+                                <strong>8 a 10 semanas</strong>
+                                <span>Duración proyectada</span>
+                            </div>
+                        </li>
+                        <li class="s-dato">
+                            <div>
+                                <strong>Actividades breves</strong>
+                                <span>Lúdicas y participativas</span>
+                            </div>
+                        </li>
+                        <li class="s-dato">
+                            <div>
+                                <strong>Enfoque preventivo</strong>
+                                <span>Grupal y educativo</span>
+                            </div>
+                        </li>
+                        <li class="s-dato">
+                            <div>
+                                <strong>Pensado para docentes</strong>
+                                <span>Materiales y orientaciones para aplicarlo</span>
+                            </div>
+                        </li>
+                        <li class="s-dato">
+                            <div>
+                                <strong>Seguimiento</strong>
+                                <span>Caracterización inicial, seguimiento grupal y protocolo de evaluación para una
+                                    futura implementación</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="como" class="s-ruta">
+            <div class="s-wrap">
+                <!-- Reemplaza únicamente el contenido actual de .s-ruta-head por este bloque -->
+                <div class="s-ruta-head s-rv">
+                    <div class="s-ruta-title-row">
+                        <span class="s-ruta-kicker">NUESTRA METODOLOGÍA</span>
+                    </div>
+
+                    <p class="s-ruta-lead">
+                        <span>Cada grupo es diferente. <br> Nuestra metodología también debe reconocerlo.</span>
+                    </p>
+
+                </div>
+
+
+                <div class="s-ruta-body">
+                    <div class="s-patio s-rv">
+                        <div class="s-rayuela" role="tablist" aria-label="Pasos de la ruta de trabajo">
+                            <button class="s-casilla" role="tab" id="paso-1" aria-controls="panel-1"
+                                aria-selected="true" style="--c:var(--azul);--k:#fff"><span>1</span></button>
+                            <button class="s-casilla" role="tab" id="paso-2" aria-controls="panel-2"
+                                aria-selected="false" tabindex="-1" style="--c:var(--cian)"><span>2</span></button>
+                            <button class="s-casilla" role="tab" id="paso-3" aria-controls="panel-3"
+                                aria-selected="false" tabindex="-1"
+                                style="--c:var(--verde);--k:#fff"><span>3</span></button>
+                            <button class="s-casilla" role="tab" id="paso-4" aria-controls="panel-4"
+                                aria-selected="false" tabindex="-1" style="--c:var(--lima)"><span>4</span></button>
+                            <button class="s-casilla" role="tab" id="paso-5" aria-controls="panel-5"
+                                aria-selected="false" tabindex="-1" style="--c:var(--ambar)"><span>5</span></button>
+                            <button class="s-casilla" role="tab" id="paso-6" aria-controls="panel-6"
+                                aria-selected="false" tabindex="-1"
+                                style="--c:var(--naranja);--k:#fff"><span>6</span></button>
+                            <button class="s-casilla" role="tab" id="paso-7" aria-controls="panel-7"
+                                aria-selected="false" tabindex="-1" style="--c:var(--coral)"><span>7</span></button>
+                        </div>
+                        <span class="s-piedra" aria-hidden="true"></span>
+                    </div>
+
+                    <div class="s-rv" style="--d:.12s">
+                        <div class="s-panels">
+                            <div class="s-panel" id="panel-1" role="tabpanel" aria-labelledby="paso-1"
+                                style="--c:var(--azul)">
+                                <p class="s-paso-n">1<span>de 7</span></p>
+                                <h3 class="s-paso-t">Nos conocemos</h3>
+                                <p class="s-paso-d">Dialogamos con rectoría, coordinación académica y orientación
+                                    escolar para entender necesidades y expectativas, revisar cursos, recursos y
+                                    tiempos, y definir las responsabilidades de cada parte.</p>
+                                <p class="s-paso-p">Propósito: una propuesta viable y coherente con las necesidades.</p>
+                            </div>
+
+                            <div class="s-panel" id="panel-2" role="tabpanel" aria-labelledby="paso-2"
+                                style="--c:var(--cian)" hidden>
+                                <p class="s-paso-n">2<span>de 7</span></p>
+                                <h3 class="s-paso-t">Conocemos al grupo</h3>
+                                <p class="s-paso-d">Identificamos fortalezas y necesidades de regulación emocional con
+                                    instrumentos psicométricos existentes y con respaldo científico, grupos focales
+                                    voluntarios y la mirada de docentes y orientación, siempre con las autorizaciones
+                                    correspondientes.</p>
+                                <p class="s-paso-p">Propósito: comprender al grupo antes de diseñar la intervención.</p>
+                            </div>
+
+                            <div class="s-panel" id="panel-3" role="tabpanel" aria-labelledby="paso-3"
+                                style="--c:var(--verde)" hidden>
+                                <p class="s-paso-n">3<span>de 7</span></p>
+                                <h3 class="s-paso-t">Diseñamos y adaptamos</h3>
+                                <p class="s-paso-d">Elegimos estrategias de regulación emocional con fundamento
+                                    científico.
+                                    <br>Antes de aplicarlos, profesionales de psicología revisan la
+                                    coherencia, la edad, la seguridad y la viabilidad.
+                                </p>
+                                <p class="s-paso-p">Propósito: una propuesta estructurada, no una colección de juegos.
+                                </p>
+                            </div>
+
+                            <div class="s-panel" id="panel-4" role="tabpanel" aria-labelledby="paso-4"
+                                style="--c:var(--lima)" hidden>
+                                <p class="s-paso-n">4<span>de 7</span></p>
+                                <h3 class="s-paso-t">Acompañamos a los docentes</h3>
+                                <p class="s-paso-d">Entregamos guías, fichas de actividades y materiales imprimibles,
+                                    con orientación para conducir la reflexión grupal y registrar la implementación. Así
+                                    los docentes pueden aplicar las actividades sin depender de un profesional externo
+                                    en cada sesión.</p>
+                                <p class="s-paso-p">Propósito: continuidad y orden en el aula.</p>
+                            </div>
+
+                            <div class="s-panel" id="panel-5" role="tabpanel" aria-labelledby="paso-5"
+                                style="--c:var(--ambar)" hidden>
+                                <p class="s-paso-n">5<span>de 7</span></p>
+                                <h3 class="s-paso-t">Aprendemos jugando</h3>
+                                <p class="s-paso-d">Con una ruleta, los estudiantes eligen una situación escolar y
+                                    reflexionan: ¿qué ocurrió?, ¿qué siente el cuerpo?, ¿qué pensamos?, ¿qué emoción
+                                    aparece? Luego sacan una tarjeta con una estrategia de regulación y exploran cómo y
+                                    cuándo usarla. </p>
+                                <p class="s-paso-p">Propósito: convertir lo cotidiano en aprendizaje mediante el juego.
+                                </p>
+                            </div>
+
+                            <div class="s-panel" id="panel-6" role="tabpanel" aria-labelledby="paso-6"
+                                style="--c:var(--naranja)" hidden>
+                                <p class="s-paso-n">6<span>de 7</span></p>
+                                <h3 class="s-paso-t">Observamos y evaluamos</h3>
+                                <p class="s-paso-d">Registramos cómo se desarrollan los talleres, la participación y las
+                                    dificultades, para ajustar lo necesario. Contemplamos un protocolo de evaluación
+                                    inicial y final.
+                                    <br>Los resultados se analizan según el
+                                    diseño metodológico
+                                </p>
+                                <p class="s-paso-p">Propósito: revisar la implementación y orientar mejoras.</p>
+                            </div>
+
+                            <div class="s-panel" id="panel-7" role="tabpanel" aria-labelledby="paso-7"
+                                style="--c:var(--coral)" hidden>
+                                <p class="s-paso-n">7<span>de 7</span></p>
+                                <h3 class="s-paso-t">Compartimos y mejoramos</h3>
+                                <p class="s-paso-d">Entregamos al colegio un informe con las actividades, el
+                                    cumplimiento de objetivos, observaciones, resultados grupales con sustento técnico,
+                                    dificultades y recomendaciones de continuidad o ajuste.</p>
+                                <p class="s-paso-p">Propósito: información organizada para seguir mejorando.</p>
+                            </div>
+                        </div>
+
+                        <div class="s-pasos-nav">
+                            <button type="button" data-paso="prev">← Anterior</button>
+                            <button type="button" data-paso="next">Siguiente →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="contacto" class="s-cierre">
+            <div class="s-wrap">
+                <div class="s-corte s-rv">
+                    <h2 class="s-title">¡Construyamos oportunidades para aprender!</h2>
+                    <br>
+                    <p>Queremos escuchar a instituciones educativas, profesionales y organizaciones interesadas en
+                        promover el aprendizaje socioemocional.</p>
+                    <p class="s-pend">Canales oficiales de contacto: próximamente.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="s-footer">
+        <div class="wrap s-footer__wrap">
+
+            <div class="s-footer__masthead">
+                <span class="s-footer__brand">SENTARIA</span>
+                <span class="s-footer__descriptor">Aprendizaje socioemocional</span>
+            </div>
+
+            <div class="s-footer__content">
+
+                <section class="s-footer__science" aria-labelledby="footer-science-title">
+                    <span class="s-footer__kicker">FUNDAMENTO</span>
+
+                    <h2 id="footer-science-title">
+                        Una propuesta guiada por el conocimiento.
+                    </h2>
+
+                    <p>
+                        SENTARIA se apoya en conocimientos científicos sobre el aprendizaje
+                        socioemocional y la regulación emocional.
+                    </p>
+
+                    <p>
+                        Entre nuestros referentes se encuentran el marco de competencias
+                        socioemocionales de <strong>CASEL (2020)</strong> y el modelo procesual
+                        de regulación emocional de <strong>Gross (1998)</strong>. También
+                        consideramos investigaciones sobre el desarrollo emocional infantil,
+                        las intervenciones escolares y los procedimientos de evaluación,
+                        entre ellas las de <strong>Pickerell et al. (2023)</strong>,
+                        <strong>Raccanello et al. (2023)</strong> y
+                        <strong>Contreras-Valdez et al. (2018)</strong>.
+                    </p>
+
+                    <p class="s-footer__closing">
+                        Estos conocimientos orientan el diseño de actividades con objetivos
+                        educativos definidos, adaptadas a las características de los estudiantes.
+                    </p>
+                </section>
+
+                <section class="s-footer__project" aria-labelledby="footer-project-title">
+                    <span class="s-footer__kicker">ESTADO DEL PROYECTO</span>
+
+                    <h2 id="footer-project-title">
+                        En desarrollo y estructuración.
+                    </h2>
+
+                    <p>
+                        Durante 2027 se proyecta avanzar en el diseño técnico y pedagógico
+                        de SENTARIA Aula.
+                    </p>
+
+                    <p>
+                        Su aplicación piloto y posterior comercialización estarán sujetas
+                        a las condiciones técnicas, institucionales, éticas y económicas
+                        necesarias.
+                    </p>
+                </section>
+
+            </div>
+
+            <div class="s-footer__bottom">
+                <p class="s-footer__copy">© 2026 SENTARIA</p>
+                <span class="s-footer__bottom-line" aria-hidden="true"></span>
+            </div>
+
+        </div>
+    </footer>
+    <script src="code/loader.js"></script>
+    <script src="code/script.js"></script>
+    <script src="code/frase.js"></script>
+    <script src="code/cards.js"></script>
+    <script src="code/content.js"></script>
+    <script src="code/hero-parallax.js"></script>
+    <script src="code/sections.js"></script>
+    <script src="code/scroll-3d.js"></script>
+</body>
+
+</html>

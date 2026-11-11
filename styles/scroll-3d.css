@@ -1,0 +1,98 @@
+
+/* =========================================================
+   SENTARIA — PARALLAX 3D POR SCROLL
+   Complementa las transformaciones originales.
+   No modifica contenedores ni recorta elementos.
+========================================================= */
+
+/* ---------------------------------------------------------
+   1. TARJETAS INICIALES
+   Conserva el movimiento de cards.js y suma el scroll.
+--------------------------------------------------------- */
+
+.quick .wrap .qc img.qc-ico.s-scroll3d {
+    transform:
+        perspective(700px)
+        translate3d(
+            calc(var(--mx, 0) * 14px + var(--scroll-x, 0px)),
+            calc(var(--my, 0) * 10px + var(--scroll-y, 0px)),
+            var(--scroll-z, 0px)
+        )
+        rotateX(calc(8deg + var(--scroll-rx, 0deg)))
+        rotateY(calc(var(--iy, 0deg) + var(--scroll-ry, 0deg)))
+        rotateZ(calc(var(--ir, 0deg) + var(--scroll-rz, 0deg)));
+
+    transition: transform .16s linear;
+}
+
+/* Conserva el efecto hover original */
+.quick .wrap .qc:hover img.qc-ico.s-scroll3d,
+.quick .wrap .qc:focus-visible img.qc-ico.s-scroll3d {
+    transform:
+        perspective(700px)
+        translate3d(
+            calc(var(--mx, 0) * 14px + var(--scroll-x, 0px)),
+            calc(var(--my, 0) * 10px + var(--scroll-y, 0px) - 8px),
+            var(--scroll-z, 0px)
+        )
+        rotateX(calc(5deg + var(--scroll-rx, 0deg)))
+        rotateY(calc(var(--iy, 0deg) * .6 + var(--scroll-ry, 0deg)))
+        rotateZ(calc(var(--ir, 0deg) + var(--scroll-rz, 0deg)))
+        scale(1.1);
+}
+
+/* ---------------------------------------------------------
+   2. ILUSTRACIONES INTERIORES
+   Conserva el parallax de content.js y la flotación CSS.
+--------------------------------------------------------- */
+
+img.section-object.s-scroll3d {
+    transform:
+        perspective(850px)
+        translate3d(
+            calc(var(--pointer-x, 0px) + var(--scroll-x, 0px)),
+            calc(var(--pointer-y, 0px) + var(--scroll-y, 0px)),
+            var(--scroll-z, 0px)
+        )
+        rotateX(var(--scroll-rx, 0deg))
+        rotateY(var(--scroll-ry, 0deg))
+        rotateZ(
+            calc(var(--object-rotate, -8deg) + var(--scroll-rz, 0deg))
+        );
+
+    transition:
+        transform .16s linear,
+        filter .3s ease,
+        scale .3s ease;
+}
+
+/* ---------------------------------------------------------
+   3. CALENDARIO DE SENTARIA AULA
+   Conserva su rotación original y la flotación vertical.
+--------------------------------------------------------- */
+
+img.s-ico-cal.s-scroll3d {
+    transform:
+        perspective(850px)
+        translate3d(
+            var(--scroll-x, 0px),
+            var(--scroll-y, 0px),
+            var(--scroll-z, 0px)
+        )
+        rotateX(var(--scroll-rx, 0deg))
+        rotateY(var(--scroll-ry, 0deg))
+        rotateZ(calc(-6deg + var(--scroll-rz, 0deg)));
+
+    transition: transform .16s linear;
+}
+
+/* ---------------------------------------------------------
+   4. ACCESIBILIDAD
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    img.s-scroll3d {
+        transform: none !important;
+        transition: none !important;
+    }
+}

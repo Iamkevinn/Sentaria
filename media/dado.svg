@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<defs>
+ <linearGradient id="die" x1=".12" y1=".05" x2=".88" y2=".95">
+  <stop stop-color="#ffd4a3"/><stop offset=".28" stop-color="#ff9b7e"/><stop offset=".58" stop-color="#f65c5d"/><stop offset="1" stop-color="#c9274d"/>
+ </linearGradient>
+ <linearGradient id="face" x1=".15" y1="0" x2=".85" y2="1">
+  <stop stop-color="#fff0d0" stop-opacity=".55"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#8e153d" stop-opacity=".25"/>
+ </linearGradient>
+ <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+  <feGaussianBlur in="SourceAlpha" stdDeviation="9"/><feOffset dy="9"/>
+  <feComponentTransfer><feFuncA type="linear" slope=".25"/></feComponentTransfer>
+  <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+ </filter>
+ <clipPath id="clip"><path d="M256 18 Q271 17 287 30 L478 205 Q508 233 486 263 L286 477 Q257 509 226 481 L27 290 Q-4 260 23 228 L224 36 Q241 19 256 18Z"/></clipPath>
+</defs>
+<g filter="url(#shadow)">
+ <path d="M256 18 Q271 17 287 30 L478 205 Q508 233 486 263 L286 477 Q257 509 226 481 L27 290 Q-4 260 23 228 L224 36 Q241 19 256 18Z" fill="url(#die)" stroke="#bd3150" stroke-opacity=".35" stroke-width="5"/>
+ <g clip-path="url(#clip)">
+  <path d="M256 18 Q271 17 287 30 L478 205 Q508 233 486 263 L286 477 Q257 509 226 481 L27 290 Q-4 260 23 228 L224 36 Q241 19 256 18Z" fill="url(#face)"/>
+  <ellipse cx="160" cy="100" rx="150" ry="105" fill="#fff2d8" opacity=".13"/>
+  <path d="M-15 345 Q180 260 530 280 L530 530 H-15Z" fill="#a71948" opacity=".1"/>
+ </g>
+ <g fill="#fff">
+  <circle cx="256" cy="127" r="42"/><circle cx="147" cy="254" r="42"/>
+  <circle cx="365" cy="254" r="42"/><circle cx="256" cy="381" r="42"/>
+ </g>
+ <path d="M255 29 Q271 27 285 40 L457 199" fill="none" stroke="#fff1d8" stroke-width="8" stroke-linecap="round" opacity=".34"/>
+</g></svg>

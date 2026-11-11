@@ -1,0 +1,1724 @@
+/*styles.css*/
+:root {
+    --azul: #1B729B;
+    --azul-txt: #14607F;
+    --cian: #20ACC1;
+    --ambar: #F4A817;
+    --naranja: #E55A1D;
+    --verde: #4F9E40;
+    --lima: #A5C11F;
+    --amarillo: #F1CF56;
+    --coral: #E57D5E;
+    --tinta: #12304F;
+    --claro: #EAF6FB;
+    --linea: #cfe3ee
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0
+}
+
+body {
+    font-family: "Baloo 2", Nunito, system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: var(--tinta);
+    background: #fff
+}
+
+a {
+    color: inherit
+}
+
+.wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px
+}
+
+section {
+    padding: 88px 0
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.08;
+    font-weight: 900;
+    color: var(--azul)
+}
+
+h1 {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    color: #fff;
+    margin-bottom: 18px
+}
+
+h2 {
+    font-size: clamp(2rem, 3.8vw, 2.9rem);
+    margin-bottom: 20px
+}
+
+p+p {
+    margin-top: 1em
+}
+
+.top {
+    position: sticky;
+    top: 12px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(1120px, calc(100% - 32px));
+    margin: 16px auto -92px;
+    padding: 12px 18px 12px 28px;
+    background: #fff;
+    border-radius: 999px;
+    box-shadow: 0 6px 20px rgba(18, 48, 79, .25)
+}
+
+.logo {
+    margin-right: 28px
+}
+
+.logo img {
+    display: block;
+    height: 18px;
+    width: auto
+}
+
+nav {
+    display: flex;
+    gap: 26px
+}
+
+nav a {
+    font-size: .98rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--tinta);
+    border-bottom: 3px solid transparent
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--azul);
+    border-color: var(--cian)
+}
+
+
+nav a:not(.nav-aula):hover {
+    border-bottom-color: var(--cian);
+}
+
+.burger {
+    display: none;
+    font: inherit;
+    font-weight: 800;
+    background: var(--azul);
+    color: #fff;
+    border: 0;
+    padding: 8px 18px;
+    border-radius: 999px;
+    cursor: pointer
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    background: var(--azul);
+    padding: 170px 0 190px
+}
+
+.doodle {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .17;
+    pointer-events: none
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 34px;
+    background: linear-gradient(#F4A817, #F08A1E);
+    color: var(--tinta);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 16px 32px;
+    border-radius: 999px;
+    box-shadow: 0 8px 18px rgba(10, 40, 70, .35)
+}
+
+.btn:hover,
+.btn:focus-visible {
+    filter: brightness(1.07)
+}
+
+.btn.sec {
+    background: var(--cian);
+    color: var(--tinta);
+    box-shadow: none
+}
+
+.hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 40px;
+    align-items: center
+}
+
+.hero p {
+    max-width: 50ch
+}
+
+.hero-txt {
+    align-self: center
+}
+
+.hero p.gr {
+    max-width: none;
+    font-size: clamp(1.8rem, 4.2vw, 3.6rem);
+    line-height: 1.15
+}
+
+.frase {
+    text-align: center
+}
+
+.frase+p {
+    margin-top: 28px
+}
+
+.f1 {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto 18px;
+    padding: 8px 22px 8px 14px;
+    font-weight: 900;
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    color: var(--tinta);
+    background: repeating-linear-gradient(transparent 0 23px, rgba(32, 172, 193, .35) 23px 24px), #FFFDF2;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(10, 40, 70, .3);
+    transform: rotate(-2deg)
+}
+
+.f1::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 64px;
+    height: 20px;
+    background: rgba(241, 207, 86, .85);
+    transform: translateX(-50%) rotate(3deg)
+}
+
+.f1 img {
+    order: -1;
+    height: 30px;
+    width: auto
+}
+
+.rot {
+    display: grid;
+    width: 100%;
+    max-width: 540px;
+    margin: 8px auto 0
+}
+
+.slide {
+    grid-area: 1/1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s, visibility .35s
+}
+
+.slide.on {
+    opacity: 1;
+    visibility: visible
+}
+
+.slide>img {
+    height: 84px;
+    width: auto;
+    animation: bob 2.4s ease-in-out infinite
+}
+
+@keyframes bob {
+    50% {
+        transform: translateY(-8px) rotate(3deg)
+    }
+}
+
+.gr .w {
+    display: inline-block;
+    white-space: nowrap
+}
+
+.gr .l {
+    display: inline-block
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px
+}
+
+.crayon {
+    font-family: "Gochi Hand", cursive;
+    filter: url(#crayon)
+}
+
+.crayon .l {
+    color: var(--c);
+    -webkit-text-stroke: .025em var(--c);
+    transform: translateY(var(--y)) rotate(var(--r))
+}
+
+.slide.on .crayon .l {
+    animation: write .35s both;
+    animation-delay: calc(var(--i) * .1s)
+}
+
+@keyframes write {
+    from {
+        clip-path: inset(-20% 100% -20% 0)
+    }
+
+    to {
+        clip-path: inset(-20% -20% -20% -20%)
+    }
+}
+
+.cut .w {
+    filter: drop-shadow(1px 2px 1px rgba(0, 0, 0, .45))
+}
+
+.cut .l {
+    font-size: calc(1em * var(--s));
+    font-weight: 900;
+    line-height: 1.1;
+    min-width: .74em;
+    text-align: center;
+    padding: .04em .06em;
+    margin: 0 .02em;
+    background-color: var(--p);
+    color: var(--k);
+    font-family: var(--f);
+    clip-path: polygon(var(--cp));
+    transform: translateY(var(--y)) rotate(var(--r))
+}
+
+.cut .np {
+    background-image: repeating-linear-gradient(0deg, rgba(0, 0, 0, .09) 0 1px, transparent 1px 5px)
+}
+
+.cut .gl {
+    background-image: radial-gradient(ellipse at 88% 92%, rgba(255, 255, 255, .35) 0 .1em, transparent .11em)
+}
+
+.cut .np.gl {
+    background-image: radial-gradient(ellipse at 88% 92%, rgba(255, 255, 255, .35) 0 .1em, transparent .11em), repeating-linear-gradient(0deg, rgba(0, 0, 0, .09) 0 1px, transparent 1px 5px)
+}
+
+.slide.on .cut .l {
+    animation: glue .4s cubic-bezier(.3, 1.6, .5, 1) both;
+    animation-delay: calc(var(--i) * .07s)
+}
+
+@keyframes glue {
+    from {
+        opacity: 0;
+        transform: translateY(-1.2em) rotate(calc(var(--r) * 4)) scale(1.3)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(var(--y)) rotate(var(--r))
+    }
+}
+
+.tij {
+    width: 48px;
+    flex: none
+}
+
+.tij g {
+    transform-origin: 22px 20px;
+    animation: snip .5s ease-in-out infinite alternate
+}
+
+.tij .b2 {
+    animation-direction: alternate-reverse
+}
+
+@keyframes snip {
+    from {
+        transform: rotate(-9deg)
+    }
+
+    to {
+        transform: rotate(5deg)
+    }
+}
+
+.clay {
+    font-family: Chewy, cursive;
+    letter-spacing: .02em;
+    filter: url(#clay)
+}
+
+.clay .l {
+    color: var(--c);
+    -webkit-text-stroke: .06em var(--c);
+    transform: rotate(var(--r)) scale(var(--s))
+}
+
+.slide.on .clay .l {
+    animation: squish .6s cubic-bezier(.3, 1.6, .5, 1) both;
+    animation-delay: calc(var(--i) * .06s)
+}
+
+@keyframes squish {
+    from {
+        opacity: 0;
+        transform: scale(.2, 1.6) rotate(var(--r))
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(var(--r)) scale(var(--s))
+    }
+}
+
+.hero-art {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.hero-art .logo-hero {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    filter: drop-shadow(0 8px 10px rgba(10, 40, 70, .25));
+    transition: transform .25s ease, filter .25s ease
+}
+
+.hero-art .logo-hero:hover {
+    transform: translateY(-6px) scale(1.04);
+    filter: drop-shadow(0 18px 18px rgba(10, 40, 70, .5))
+}
+
+.hero-art .btn {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    bottom: -26px;
+    width: fit-content;
+    margin: 0 auto;
+    transition: transform .25s ease, box-shadow .25s ease, filter .25s ease
+}
+
+.hero-art .btn:hover,
+.hero-art .btn:focus-visible {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 14px 26px rgba(10, 40, 70, .5)
+}
+
+.d3 {
+    position: absolute;
+    height: auto;
+    width: clamp(84px, 13vw, 150px);
+    pointer-events: none
+}
+
+.d3-a {
+    top: -48px;
+    left: -36px
+}
+
+.quick {
+    position: relative;
+    z-index: 2;
+    margin-top: -120px;
+    padding: 0 0 56px
+}
+
+.quick .wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: start;
+    padding-top: 42px;
+}
+
+.qc {
+    display: block;
+    background: #fff;
+    border-radius: 26px;
+    padding: 24px;
+    text-decoration: none;
+    box-shadow: 0 12px 28px rgba(10, 40, 70, .22)
+}
+
+.qc:nth-child(1) {
+    transform: rotate(-2deg)
+}
+
+.qc:nth-child(2) {
+    transform: rotate(1.2deg);
+    margin-top: 36px
+}
+
+.qc:nth-child(3) {
+    transform: rotate(-.8deg);
+    margin-top: 14px
+}
+
+.qc h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem
+}
+
+.num {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--azul);
+    color: #fff;
+    font-size: 1rem
+}
+
+.qc:nth-child(2) .num {
+    background: var(--cian);
+    color: var(--tinta)
+}
+
+.qc:nth-child(3) .num {
+    background: var(--ambar);
+    color: var(--tinta)
+}
+
+.qc p {
+    margin-top: 12px;
+    font-size: 1rem
+}
+
+.qc img {
+    display: block;
+    height: 92px;
+    width: auto;
+    margin: 14px 0 0 auto
+}
+
+.kicker {
+    font-weight: 800
+}
+
+.big {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.5
+}
+
+.feat {
+    list-style: none;
+    padding: 0;
+    margin: 32px 0;
+    columns: 2;
+    column-gap: 40px
+}
+
+.feat li {
+    padding: 8px 0 8px 24px;
+    position: relative;
+    break-inside: avoid
+}
+
+.feat li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 19px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--amarillo)
+}
+
+.status {
+    font-weight: 800;
+    border-top: 4px solid var(--ambar);
+    padding-top: 16px;
+    margin-top: 32px
+}
+
+.mv {
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    margin-bottom: 96px
+}
+
+.mision {
+    padding-right: 56px
+}
+
+.vision {
+    padding-left: 40px;
+    border-left: 5px solid var(--cian)
+}
+
+.commit {
+    margin-top: 24px;
+    font-size: 1rem
+}
+
+.sub {
+    font-size: 1.8rem;
+    margin-bottom: 8px
+}
+
+.intro {
+    max-width: 62ch;
+    margin-bottom: 32px
+}
+
+.note {
+    margin-top: 32px;
+    max-width: 66ch;
+    font-size: 1rem;
+    border-left: 5px solid var(--coral);
+    padding-left: 16px
+}
+
+.lead2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 12px
+}
+
+summary {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    padding: 20px 8px;
+    cursor: pointer;
+    list-style: none
+}
+
+summary::-webkit-details-marker {
+    display: none
+}
+
+summary::after {
+    content: "+";
+    margin-left: auto;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--azul)
+}
+
+details[open] summary::after {
+    content: "–"
+}
+
+summary:hover {
+    background: var(--claro)
+}
+
+.n {
+    flex: none;
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    background: var(--azul);
+    color: #fff;
+    font-weight: 900;
+    font-size: 1.3rem;
+    border-radius: 50%
+}
+
+.steps>li:nth-child(2) .n {
+    background: var(--cian);
+    color: var(--tinta)
+}
+
+.steps>li:nth-child(3) .n {
+    background: var(--verde)
+}
+
+.steps>li:nth-child(4) .n {
+    background: var(--lima);
+    color: var(--tinta)
+}
+
+.steps>li:nth-child(5) .n {
+    background: var(--ambar);
+    color: var(--tinta)
+}
+
+.steps>li:nth-child(6) .n {
+    background: var(--naranja)
+}
+
+.steps>li:nth-child(7) .n {
+    background: var(--coral);
+    color: var(--tinta)
+}
+
+.t {
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: var(--azul-txt)
+}
+
+.t small {
+    display: block;
+    font-weight: 600;
+    font-size: .95rem;
+    color: var(--tinta)
+}
+
+.body {
+    padding: 4px 8px 28px 78px;
+    max-width: 80ch
+}
+
+.body ul {
+    margin: 12px 0 12px 20px
+}
+
+.body li {
+    padding: 3px 0
+}
+
+.goal {
+    font-weight: 800;
+    color: var(--azul-txt)
+}
+
+.text .sub {
+    margin-top: 44px
+}
+
+.pending {
+    font-weight: 800;
+    border-top: 4px solid var(--ambar);
+    padding-top: 16px;
+    margin-top: 28px
+}
+
+footer {
+    background: var(--tinta);
+    color: #dbe8f2;
+    padding: 56px 0 32px;
+    font-size: .88rem
+}
+
+footer h2 {
+    color: var(--amarillo);
+    font-size: 1.3rem
+}
+
+.refs {
+    list-style: none;
+    padding: 0
+}
+
+.refs li {
+    padding: 10px 0;
+    border-bottom: 1px solid #2a4a6b;
+    overflow-wrap: anywhere
+}
+
+.refs a {
+    color: #7FDCF0
+}
+
+.copy {
+    margin-top: 24px
+}
+
+:focus-visible {
+    outline: 3px solid var(--naranja);
+    outline-offset: 2px
+}
+
+.top {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr
+}
+
+.logo {
+    justify-self: start
+}
+
+nav {
+    display: contents
+}
+
+.links {
+    display: flex;
+    gap: 26px
+}
+
+nav .nav-aula {
+    justify-self: end;
+    background: var(--azul);
+    color: #fff;
+    padding: 10px 26px;
+    border-radius: 999px;
+    border: 0
+}
+
+nav .nav-aula:hover,
+nav .nav-aula:focus-visible {
+    background: var(--azul-txt);
+    color: #fff
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .rot {
+        display: flex;
+        flex-direction: column;
+        gap: 20px
+    }
+
+    .slide {
+        opacity: 1;
+        visibility: visible
+    }
+
+    .slide *,
+    .slide>img {
+        animation: none !important
+    }
+
+    .hero-art .logo-hero,
+    .hero-art .btn {
+        transition: none
+    }
+
+    .hero-art .logo-hero:hover,
+    .hero-art .btn:hover,
+    .hero-art .btn:focus-visible {
+        transform: none
+    }
+}
+
+@media(max-width:900px) {
+    section {
+        padding: 56px 0
+    }
+
+    .logo img {
+        height: 26px;
+    }
+
+    .hero {
+        padding: 140px 0 150px
+    }
+
+    .burger {
+        display: block
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: #fff;
+        border-radius: 24px;
+        padding: 8px 0;
+        box-shadow: 0 8px 24px rgba(18, 48, 79, .25)
+    }
+
+    nav.open {
+        display: flex
+    }
+
+    nav a {
+        padding: 14px 28px;
+        border: 0
+    }
+
+    .split,
+    .mv,
+    .offer,
+    .quick .wrap {
+        grid-template-columns: 1fr;
+        gap: 32px
+    }
+
+    .hero-grid {
+        gap: 24px
+    }
+
+    .quick {
+        margin-top: -90px
+    }
+
+    .qc:nth-child(n) {
+        margin-top: 0
+    }
+
+    .mision {
+        padding: 0
+    }
+
+    .vision {
+        padding: 24px 0 0;
+        border-left: 0;
+        border-top: 5px solid var(--cian)
+    }
+
+    .casel div {
+        grid-template-columns: 1fr;
+        gap: 4px
+    }
+
+    .feat {
+        columns: 1
+    }
+
+    .body {
+        padding-left: 8px
+    }
+
+    .offer h3,
+    .offer p,
+    .offer dl {
+        grid-column: 1;
+        grid-row: auto
+    }
+
+    .d3-a {
+        left: -10px;
+        top: -40px
+    }
+
+    .top {
+        display: flex
+    }
+
+    .links {
+        flex-direction: column;
+        gap: 0
+    }
+
+    nav .nav-aula {
+        margin: 8px 20px 12px;
+        padding: 14px 28px;
+        text-align: center
+    }
+
+}
+
+@media(max-width:720px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px
+    }
+
+    .hero p.gr {
+        font-size: min(3rem, calc((100vw - 64px) / 8.2))
+    }
+
+    .tij {
+        display: none
+    }
+
+    .hero-art .logo-hero {
+        max-width: 200px
+    }
+
+    .slide>img {
+        height: 64px
+    }
+}
+
+
+/* =========================================
+   SENTARIA — PORTADA PRINCIPAL
+   Diseño, personaje, iconos y botón
+========================================= */
+
+/* Estructura general */
+.hero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: min(86svh, 780px);
+    min-height: 620px;
+    padding: 90px 0 100px;
+
+    overflow: hidden;
+    background: var(--azul);
+    color: #fff;
+}
+
+/* Fondo decorativo */
+.hero .doodle {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Distribución en dos columnas */
+.hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 55px;
+
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+/* Texto centrado */
+.hero-txt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    align-self: center;
+    transform: none;
+}
+
+.hero-txt .frase {
+    width: 100%;
+    margin-inline: auto;
+    text-align: center;
+}
+
+/* Personaje y composición flotante */
+.hero-art {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: visible;
+}
+
+/* Contenedor invisible */
+.avatar-card {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+
+    width: 100%;
+    max-width: 460px;
+    min-height: 460px;
+    padding: 0;
+    overflow: visible;
+
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Halo luminoso */
+.avatar-card::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+
+    width: 85%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(75, 205, 222, .48) 0%,
+        rgba(55, 177, 207, .28) 48%,
+        rgba(55, 177, 207, 0) 72%
+    );
+
+    transform: scale(1.12);
+}
+
+/* Círculo decorativo */
+.avatar-card::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+
+    width: 72%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, .15);
+    background: rgba(255, 255, 255, .035);
+}
+
+/* Niño */
+.avatar-card .logo-hero {
+    position: relative;
+    z-index: 2;
+    display: block;
+
+    width: 100%;
+    max-width: 325px;
+    height: auto;
+
+    filter:
+        drop-shadow(0 18px 18px rgba(5, 43, 69, .25))
+        drop-shadow(0 0 22px rgba(255, 255, 255, .10));
+
+    transition: transform .25s ease, filter .25s ease;
+}
+
+.avatar-card .logo-hero:hover {
+    transform: translateY(-5px);
+}
+
+/* Iconos flotantes */
+.hero-icon {
+    position: absolute;
+    z-index: 3;
+    display: block;
+
+    width: 108px;
+    height: auto;
+
+    pointer-events: none;
+    will-change: transform;
+}
+
+.hero-icon-palette {
+    top: 2%;
+    left: -7%;
+}
+
+.hero-icon-zoom {
+    width: 120px;
+    right: -7%;
+    bottom: 3%;
+}
+
+/* Botón inferior */
+.hero > .hero-project-btn {
+    position: absolute;
+    z-index: 5;
+
+    left: 50%;
+    bottom: 60px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    width: fit-content;
+    margin: 0;
+    padding: 15px 27px;
+
+    transform: translateX(-50%);
+    box-shadow: 0 2px 8px rgba(10, 40, 70, .3);
+
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.hero > .hero-project-btn:hover,
+.hero > .hero-project-btn:focus-visible {
+    transform: translate(-50%, -4px);
+    box-shadow: 0 8px 15px rgba(10, 40, 70, .4);
+}
+
+/* Flecha del botón */
+.btn-arrow {
+    display: inline-grid;
+    place-items: center;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+    background: rgba(18, 48, 79, .12);
+
+    font-size: 1.35rem;
+    line-height: 1;
+}
+
+/* Sección de tarjetas: continuidad del fondo */
+.quick {
+    position: relative;
+    z-index: 1;
+
+    margin-top: 0;
+    padding: 0 0 56px;
+
+    background: var(--azul);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+    .hero {
+        height: auto;
+        min-height: 680px;
+        padding: 120px 0 110px;
+    }
+
+    .hero-grid {
+        gap: 30px;
+    }
+
+    .hero > .hero-project-btn {
+        bottom: 95px;
+    }
+    .avatar-card {
+        max-width: 370px;
+        min-height: 370px;
+    }
+
+    .avatar-card .logo-hero {
+        max-width: 275px;
+    }
+
+    .hero-icon {
+        width: 88px;
+    }
+
+    .hero-icon-zoom {
+        width: 100px;
+    }
+}
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 720px) {
+    .hero {
+        height: auto;
+        min-height: 0;
+        padding: 120px 0 35px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .hero-txt {
+        transform: none;
+    }
+
+    .hero-art {
+        width: min(100%, 340px);
+        margin: 0 auto;
+    }
+
+    .avatar-card {
+        max-width: 320px;
+        min-height: 320px;
+    }
+
+    .avatar-card .logo-hero {
+        max-width: 225px;
+    }
+
+    .hero-icon {
+        width: 72px;
+    }
+
+    .hero-icon-palette {
+        top: 0;
+        left: -3%;
+    }
+
+    .hero-icon-zoom {
+        width: 82px;
+        right: -3%;
+        bottom: 0;
+    }
+
+    /* El botón pasa al flujo normal en móvil */
+    .hero > .hero-project-btn {
+        position: relative;
+        left: auto;
+        bottom: auto;
+
+        margin: 30px auto 0;
+        transform: none;
+
+        font-size: .82rem;
+        padding: 13px 20px;
+    }
+
+    .hero > .hero-project-btn:hover,
+    .hero > .hero-project-btn:focus-visible {
+        transform: translateY(-4px);
+    }
+}
+
+/* =========================================
+   ACCESIBILIDAD
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-icon {
+        transform: none !important;
+    }
+
+    .avatar-card .logo-hero,
+    .hero > .hero-project-btn {
+        transition: none !important;
+    }
+
+    .avatar-card .logo-hero:hover {
+        transform: none;
+    }
+}
+
+/* =========================================
+   HERO — AJUSTE DE PROTAGONISMO
+========================================= */
+
+/* Dar más presencia a la palabra reconocer */
+.rot .slide:first-child .gr {
+    font-size: clamp(4.5rem, 7.5vw, 7rem);
+}
+
+/* =========================================
+   SENTARIA — AJUSTE DE BOTÓN Y TARJETAS
+========================================= */
+
+@media (min-width: 721px) {
+
+    /* Subir el botón */
+    .hero > .hero-project-btn {
+        bottom: 100px !important;
+    }
+
+    /* Subir las tarjetas */
+    .quick {
+        margin-top: -90px !important;
+    }
+
+}
+/* =========================================
+   SENTARIA — BASE VISUAL DEL PERSONAJE
+========================================= */
+
+.avatar-card {
+    background-image:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255, 255, 255, .2) 10%,
+            rgba(255, 255, 255, .8) 50%,
+            rgba(255, 255, 255, .2) 90%,
+            transparent 100%
+        ),
+        radial-gradient(
+            ellipse at center,
+            rgba(5, 43, 69, .28) 0%,
+            rgba(5, 43, 69, .12) 48%,
+            transparent 74%
+        );
+
+    background-repeat: no-repeat;
+    background-size:
+        62% 2px,
+        58% 12px;
+
+    background-position:
+        center 87%,
+        center 88%;
+}
+
+/* =========================================
+   SENTARIA — CONTINUIDAD VISUAL DE LOS BRAZOS
+========================================= */
+
+.avatar-personaje {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    max-width: 325px;
+    line-height: 0;
+}
+
+/* Línea situada detrás de la imagen */
+.avatar-arm-line {
+    position: absolute;
+    z-index: 1;
+
+    left: 5%;
+    right: 5%;
+    top: 87%;
+
+    height: 4px;
+    border-radius: 50%;
+
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, .55) 8%,
+        rgba(255, 255, 255, .95) 50%,
+        rgba(255, 255, 255, .55) 92%,
+        transparent 100%
+    );
+
+    box-shadow: 0 0 5px rgba(255, 255, 255, .3);
+    transform: rotate(-1deg);
+}
+
+/* Imagen por encima de la línea */
+.avatar-personaje .logo-hero {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* =========================================
+   SENTARIA — SUBRAYADO INFANTIL
+========================================= */
+
+.jugando-subrayado {
+    position: relative;
+    display: inline-block;
+}
+
+.jugando-subrayado::after {
+    content: "";
+    position: absolute;
+    left: -2px;
+    bottom: -4px;
+
+    width: calc(100% + 5px);
+    height: 4px;
+
+    background: var(--naranja);
+    border-radius: 60% 35% 55% 40%;
+
+    transform: rotate(-1.8deg);
+    opacity: .9;
+
+    box-shadow: 0 1px 0 rgba(229, 90, 29, .25);
+}
+
+/* =========================================
+   SENTARIA — LÍNEA INTEGRADA AL PERSONAJE
+========================================= */
+
+/* Evitar líneas duplicadas */
+.avatar-card {
+    background-image: none !important;
+}
+
+/* El contenedor debe tener exactamente
+   las dimensiones de la imagen */
+.avatar-personaje {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    max-width: 325px;
+    margin: 0 auto;
+    line-height: 0;
+}
+
+/* Línea detrás del personaje */
+.avatar-personaje::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+
+    left: -5%;
+    right: -5%;
+    bottom: 0%;
+
+    height: 5px;
+    border-radius: 55% 45% 50% 40%;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, .95) 0%,
+        rgba(255, 255, 255, .85) 55%,
+        rgba(220, 244, 250, .7) 100%
+    );
+
+    box-shadow:
+        0 1px 2px rgba(5, 43, 69, .2),
+        0 0 4px rgba(255, 255, 255, .2);
+
+}
+
+/* La imagen queda por delante de la línea */
+.avatar-personaje .logo-hero {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto;
+    top: -2px;
+}
+
+/* Adaptación a tablet */
+@media (max-width: 900px) {
+    .avatar-personaje {
+        max-width: 275px;
+    }
+}
+
+/* Adaptación a móvil */
+@media (max-width: 720px) {
+    .avatar-personaje {
+        max-width: 225px;
+    }
+}
+/* =========================================
+   SENTARIA — HOVER DEL PERSONAJE COMPLETO
+========================================= */
+
+.avatar-personaje {
+    transition: transform .25s ease;
+}
+
+.avatar-personaje:hover {
+    transform: translateY(-5px);
+}
+
+/* Evitar que la imagen tenga un movimiento independiente */
+.avatar-card .avatar-personaje .logo-hero:hover {
+    transform: none;
+}
+
+/* Respetar movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    .avatar-personaje {
+        transition: none;
+    }
+
+    .avatar-personaje:hover {
+        transform: none;
+    }
+}
+
+/* =========================================
+   SENTARIA — ICONOS 3D EN TARJETAS
+========================================= */
+
+/* Permitir que los iconos sobresalgan */
+.quick .qc {
+    position: relative;
+    overflow: visible;
+    padding-bottom: 88px;
+}
+
+/* Apariencia elevada de los iconos */
+.quick .qc img {
+    position: absolute;
+    z-index: 3;
+
+    right: -18px;
+    bottom: -20px;
+
+    display: block;
+    height: 112px;
+    width: auto;
+    margin: 0;
+
+    pointer-events: none;
+
+    /* Profundidad y volumen */
+    filter:
+        drop-shadow(0 3px 0 rgba(255, 255, 255, .7))
+        drop-shadow(0 7px 0 rgba(18, 48, 79, .12))
+        drop-shadow(0 14px 10px rgba(10, 40, 70, .28));
+
+    /* Perspectiva tridimensional */
+    transform:
+        perspective(700px)
+        rotateX(9deg)
+        rotateY(-13deg)
+        rotateZ(-7deg);
+
+    transform-origin: center;
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+/* Variación de perspectiva por tarjeta */
+.quick .qc:nth-child(2) img {
+    transform:
+        perspective(700px)
+        rotateX(12deg)
+        rotateY(10deg)
+        rotateZ(8deg);
+}
+
+.quick .qc:nth-child(3) img {
+    transform:
+        perspective(700px)
+        rotateX(8deg)
+        rotateY(-10deg)
+        rotateZ(-10deg);
+}
+
+/* Movimiento al pasar el cursor */
+.quick .qc:hover img {
+    transform:
+        perspective(700px)
+        translateY(-9px)
+        rotateX(5deg)
+        rotateY(-8deg)
+        rotateZ(-4deg)
+        scale(1.08);
+
+    filter:
+        drop-shadow(0 4px 0 rgba(255, 255, 255, .7))
+        drop-shadow(0 10px 5px rgba(18, 48, 79, .16))
+        drop-shadow(0 20px 15px rgba(10, 40, 70, .3));
+}
+
+/* Adaptación a tablet */
+@media (max-width: 900px) {
+    .quick .qc img {
+        height: 105px;
+        right: -14px;
+        bottom: -17px;
+    }
+}
+
+/* Adaptación a móvil */
+@media (max-width: 720px) {
+    .quick .qc {
+        padding-bottom: 82px;
+    }
+
+    .quick .qc img {
+        height: 96px;
+        right: -10px;
+        bottom: -14px;
+    }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .quick .qc img {
+        transition: none;
+    }
+
+    .quick .qc:hover img {
+        transform: none;
+    }
+}
+
+/* =========================================
+   SENTARIA — AJUSTE DE TAMAÑO DE ICONOS
+========================================= */
+
+.quick .qc {
+    padding-bottom: 70px;
+}
+
+.quick .qc img {
+    height: 78px;
+    right: -12px;
+    bottom: -14px;
+
+    filter:
+        drop-shadow(0 2px 0 rgba(255, 255, 255, .6))
+        drop-shadow(0 5px 3px rgba(18, 48, 79, .14))
+        drop-shadow(0 9px 7px rgba(10, 40, 70, .2));
+}
+
+/* Movimiento más discreto al pasar el cursor */
+.quick .qc:hover img {
+    transform:
+        perspective(700px)
+        translateY(-6px)
+        rotateX(5deg)
+        rotateY(-8deg)
+        rotateZ(-4deg)
+        scale(1.04);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .quick .qc img {
+        height: 74px;
+        right: -10px;
+        bottom: -12px;
+    }
+}
+
+/* Móvil */
+@media (max-width: 720px) {
+    .quick .qc {
+        padding-bottom: 64px;
+    }
+
+    .quick .qc img {
+        height: 68px;
+        right: -8px;
+        bottom: -10px;
+    }
+}

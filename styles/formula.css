@@ -1,0 +1,168 @@
+/* =========================================
+   SENTARIA — ECUACIÓN DE IDENTIDAD
+   Psicología + Educación + Recreación
+========================================= */
+
+.story-equation {
+    --eq-ink: var(--tinta, #12304F);
+
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+    margin: 28px 0 0;
+    padding: 12px 2px 14px;
+    color: var(--eq-ink);
+}
+
+/* Línea sutil debajo de toda la composición */
+.story-equation::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 4%;
+    bottom: 0;
+    height: 2px;
+    border-radius: 50%;
+    transform: rotate(-.45deg);
+    transform-origin: left center;
+}
+
+/* Primera fila: conceptos */
+.story-equation-terms {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 9px;
+    row-gap: 5px;
+}
+
+/* Palabras */
+.story-equation-term {
+    position: relative;
+    display: inline-block;
+    padding: 0 1px 5px;
+
+    font-family: "Baloo 2", Nunito, system-ui, sans-serif;
+    font-size: clamp(1.08rem, 1.8vw, 1.32rem);
+    font-weight: 800;
+    line-height: 1.15;
+
+    color: var(--eq-ink);
+
+    transition: transform .24s ease;
+}
+
+/* Signos de suma */
+.story-equation-plus,
+.story-equation-equals {
+    font-family: "Gochi Hand", cursive;
+    font-weight: 400;
+    line-height: .9;
+    color: var(--naranja, #E55A1D);
+}
+
+.story-equation-plus {
+    display: inline-block;
+    font-size: 1.65rem;
+    transform: rotate(-7deg);
+    transition: transform .24s ease;
+}
+
+/* Segunda fila: resultado */
+.story-equation-result {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.story-equation-equals {
+    display: inline-block;
+    font-size: 2.15rem;
+    transform: rotate(-8deg);
+}
+
+/* SENTARIA como resultado destacado */
+.story-equation-result strong {
+    display: inline-block;
+    padding: 0 .12em .02em;
+
+    font-family: "Baloo 2", Nunito, system-ui, sans-serif;
+    font-size: clamp(1.65rem, 3vw, 2.05rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: .055em;
+
+    color: var(--azul-txt, #14607F);
+
+    transition: transform .25s ease;
+}
+
+/* =========================================
+   INTERACCIONES
+========================================= */
+
+.story-equation:hover .story-equation-psych,
+.story-equation:focus-within .story-equation-psych {
+    transform: translateY(-3px) rotate(-1deg);
+}
+
+.story-equation:hover .story-equation-edu,
+.story-equation:focus-within .story-equation-edu {
+    transform: translateY(-4px) rotate(1deg);
+}
+
+.story-equation:hover .story-equation-play,
+.story-equation:focus-within .story-equation-play {
+    transform: translateY(-3px) rotate(-1deg);
+}
+
+.story-equation:hover .story-equation-plus,
+.story-equation:focus-within .story-equation-plus {
+    transform: rotate(8deg) scale(1.12);
+}
+
+.story-equation:hover .story-equation-result strong,
+.story-equation:focus-within .story-equation-result strong {
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 560px) {
+    .story-equation {
+        margin-top: 22px;
+    }
+
+    .story-equation-terms {
+        column-gap: 7px;
+        row-gap: 8px;
+    }
+
+    .story-equation-term {
+        font-size: 1.12rem;
+    }
+}
+
+/* =========================================
+   ACCESIBILIDAD
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .story-equation-term,
+    .story-equation-plus,
+    .story-equation-result strong {
+        transition: none;
+    }
+
+    .story-equation:hover .story-equation-term,
+    .story-equation:focus-within .story-equation-term,
+    .story-equation:hover .story-equation-plus,
+    .story-equation:focus-within .story-equation-plus,
+    .story-equation:hover .story-equation-result strong,
+    .story-equation:focus-within .story-equation-result strong {
+        transform: none;
+    }
+}

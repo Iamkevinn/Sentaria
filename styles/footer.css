@@ -1,0 +1,276 @@
+/* =====================================================
+   SENTARIA — FOOTER
+   ===================================================== */
+
+.s-footer {
+    position: relative;
+    overflow: hidden;
+    margin-top: clamp(70px, 9vw, 120px);
+    padding: 0 0 25px;
+    background: #12304F;
+    color: #F4F8FA;
+    border-top: 5px solid #20ACC1;
+}
+
+/* Contenedor */
+
+.s-footer__wrap {
+    width: min(1120px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+/* Identidad superior */
+
+.s-footer__masthead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 34px 0 27px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.s-footer__brand {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+    font-family: "Baloo 2", sans-serif;
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: 0.075em;
+    line-height: 1;
+    color: #FFFFFF;
+}
+
+.s-footer__brand::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 29px;
+    height: 3px;
+    border-radius: 3px;
+    background: #F4A817;
+}
+
+.s-footer__descriptor {
+    font-family: "Nunito", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.035em;
+    color: rgba(244, 248, 250, 0.62);
+}
+
+/* Contenido principal */
+
+.s-footer__content {
+    display: grid;
+    grid-template-columns: 1.35fr 0.8fr;
+    gap: clamp(40px, 7vw, 100px);
+    padding: 48px 0 55px;
+}
+
+/* Columnas */
+
+.s-footer__science,
+.s-footer__project {
+    position: relative;
+    min-width: 0;
+}
+
+.s-footer__science {
+    padding-left: 22px;
+    border-left: 2px solid rgba(32, 172, 193, 0.75);
+}
+
+.s-footer__project {
+    padding-left: 22px;
+    border-left: 2px solid #F4A817;
+}
+
+/* Etiquetas */
+
+.s-footer__kicker {
+    display: block;
+    margin-bottom: 13px;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    color: #54C6D4;
+}
+
+.s-footer__project .s-footer__kicker {
+    color: #F4C45D;
+}
+
+/* Títulos */
+
+.s-footer__content h2 {
+    max-width: 480px;
+    margin: 0 0 20px;
+    font-family: "Baloo 2", sans-serif;
+    font-size: clamp(1.55rem, 2.5vw, 2rem);
+    font-weight: 800;
+    line-height: 1.12;
+    color: #FFFFFF;
+}
+
+/* Párrafos */
+
+.s-footer__content p {
+    margin: 0 0 15px;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.91rem;
+    font-weight: 500;
+    line-height: 1.75;
+    color: rgba(244, 248, 250, 0.76);
+}
+
+.s-footer__content strong {
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.s-footer__content .s-footer__closing {
+    margin-top: 20px;
+    margin-bottom: 0;
+    color: rgba(244, 248, 250, 0.94);
+    font-weight: 700;
+}
+
+/* Separación visual del segundo bloque */
+
+.s-footer__project h2 {
+    max-width: 310px;
+}
+
+.s-footer__project p:last-child {
+    margin-bottom: 0;
+}
+
+/* Pie inferior */
+
+.s-footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 19px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.s-footer__copy {
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.055em;
+    color: rgba(244, 248, 250, 0.65);
+}
+
+.s-footer__bottom-line {
+    display: block;
+    width: 38px;
+    height: 4px;
+    border-radius: 4px;
+    background: #F4A817;
+}
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (max-width: 850px) {
+
+    .s-footer__content {
+        grid-template-columns: 1fr 0.8fr;
+        gap: 35px;
+    }
+
+    .s-footer__science {
+        padding-left: 17px;
+    }
+
+    .s-footer__project {
+        padding-left: 17px;
+    }
+}
+
+/* =====================================================
+   MÓVIL
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+    .s-footer {
+        margin-top: 65px;
+        padding-bottom: 20px;
+    }
+
+    .s-footer__wrap {
+        width: min(100% - 38px, 520px);
+    }
+
+    .s-footer__masthead {
+        padding: 28px 0 22px;
+    }
+
+    .s-footer__brand {
+        font-size: 1.4rem;
+    }
+
+    .s-footer__descriptor {
+        max-width: 125px;
+        font-size: 0.72rem;
+        text-align: right;
+    }
+
+    .s-footer__content {
+        grid-template-columns: 1fr;
+        gap: 38px;
+        padding: 36px 0 40px;
+    }
+
+    .s-footer__science,
+    .s-footer__project {
+        padding-left: 17px;
+    }
+
+    .s-footer__content h2 {
+        max-width: 100%;
+        font-size: 1.65rem;
+    }
+
+    .s-footer__content p {
+        font-size: 0.88rem;
+        line-height: 1.7;
+    }
+
+    .s-footer__content .s-footer__closing {
+        margin-top: 16px;
+    }
+}
+
+/* =====================================================
+   MÓVIL PEQUEÑO
+   ===================================================== */
+
+@media (max-width: 380px) {
+
+    .s-footer__wrap {
+        width: calc(100% - 30px);
+    }
+
+    .s-footer__masthead {
+        gap: 10px;
+    }
+
+    .s-footer__descriptor {
+        max-width: 110px;
+    }
+
+    .s-footer__content h2 {
+        font-size: 1.5rem;
+    }
+}

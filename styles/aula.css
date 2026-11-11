@@ -1,0 +1,491 @@
+/* =========================================================
+   SENTARIA AULA — ESTILO COMPLETO E INDEPENDIENTE
+   Reemplaza el aula.css anterior.
+   No depende de sections.css ni modifica otras secciones.
+========================================================= */
+
+/* Pizarra */
+.s-pizarra {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 112px 0 150px;
+    color: #fff;
+    background-color: var(--azul, #1B729B);
+    background-image:
+        radial-gradient(60% 40% at 18% 28%, rgba(255,255,255,.09), transparent 70%),
+        radial-gradient(50% 35% at 82% 78%, rgba(255,255,255,.07), transparent 70%),
+        repeating-linear-gradient(0deg, transparent 0 5px, rgba(255,255,255,.012) 5px 6px);
+}
+
+.s-pizarra > .s-wrap {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Borde inferior como bandeja de la pizarra */
+.s-pizarra::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 24px;
+    background: var(--tinta, #12304F);
+    border-top: 5px solid rgba(255,255,255,.22);
+}
+
+/* Tizas sobre la bandeja */
+.s-pizarra::before {
+    content: "";
+    position: absolute;
+    left: max(24px, calc(50% - 480px));
+    bottom: 29px;
+    z-index: 2;
+    width: 200px;
+    height: 12px;
+    background:
+        linear-gradient(var(--amarillo, #F1CF56), var(--amarillo, #F1CF56)) 0 0/54px 10px no-repeat,
+        linear-gradient(#fff, #fff) 76px 3px/38px 8px no-repeat,
+        linear-gradient(var(--coral, #E57D5E), var(--coral, #E57D5E)) 134px 1px/46px 9px no-repeat;
+    border-radius: 3px;
+}
+
+/* Distribución principal */
+.s-piz-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    gap: 72px;
+    align-items: center;
+}
+
+.s-piz-main {
+    position: relative;
+    min-width: 0;
+    padding-bottom: 8px;
+}
+
+.s-kicker {
+    margin: 0 0 6px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.s-kicker::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 5px;
+    margin-top: 6px;
+    background: var(--amarillo, #F1CF56);
+    border-radius: 3px;
+}
+
+.s-title.s-chalk {
+    margin: 12px 0 0;
+    color: #fff;
+    font-family: "Baloo 2", Nunito, system-ui, sans-serif;
+    font-size: clamp(2.8rem, 5.2vw, 4.5rem);
+    font-weight: 800;
+    line-height: .98;
+}
+
+.s-piz-lead {
+    max-width: 38ch;
+    margin: 22px 0 0;
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.s-piz-main > p:not(.s-kicker):not(.s-piz-lead):not(.s-estado) {
+    max-width: 46ch;
+    margin: 16px 0 0;
+    color: rgba(255,255,255,.94);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.s-estado {
+    display: inline-block;
+    margin: 26px 0 0;
+    padding: 5px 18px 6px;
+    color: var(--tinta, #12304F);
+    background: var(--amarillo, #F1CF56);
+    font-size: 1.05rem;
+    font-weight: 800;
+    border-radius: 2px;
+    transform: rotate(-2deg);
+    box-shadow: 0 3px 0 rgba(18,48,79,.18);
+}
+
+/* Columna del grado y los datos */
+.s-piz-side {
+    min-width: 0;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: 28px;
+}
+
+/* Distintivo 4° primaria */
+.s-program-stamp {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 195px;
+    justify-content: center;
+    width: 190px;
+    height: 190px;
+    border: 2px dashed rgba(255,255,255,.72);
+    background: rgba(255,255,255,.07);
+    color: #fff;
+    transform: rotate(5deg);
+    animation: aulaStampIn .65s .18s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.s-program-stamp strong {
+    color: var(--amarillo, #F1CF56);
+    font-family: "Baloo 2", Nunito, sans-serif;
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: .86;
+}
+
+.s-program-stamp span {
+    margin-top: 7px;
+    color: #fff;
+    font-family: Nunito, system-ui, sans-serif;
+    font-size: .86rem;
+    font-weight: 900;
+    letter-spacing: .18em;
+}
+
+.s-program-stamp small {
+    margin-top: 13px;
+    color: #DDF4F7;
+    font-family: Nunito, system-ui, sans-serif;
+    font-size: .61rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+}
+
+/* Lista de características, sin cajas individuales */
+.s-piz-side .s-datos {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.s-piz-side .s-dato {
+    display: grid;
+    grid-template-columns: 34px minmax(0,1fr);
+    align-items: center;
+    gap: 0;
+    padding: 14px 0;
+    border-bottom: 2px dashed rgba(255,255,255,.35);
+}
+
+.s-piz-side .s-dato::before {
+    content: "✓";
+    color: var(--amarillo, #F1CF56);
+    font-size: 1.3rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.s-piz-side .s-dato > div {
+    min-width: 0;
+}
+
+.s-piz-side .s-dato strong {
+    display: block;
+    color: #fff;
+    font-family: "Baloo 2", Nunito, system-ui, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.s-piz-side .s-dato span {
+    display: block;
+    margin-top: 2px;
+    color: rgba(255,255,255,.94);
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Calendario 3D acompaña la duración */
+.s-piz-side .s-dato-main {
+    grid-template-columns: 88px minmax(0,1fr);
+    padding-top: 0;
+}
+
+.s-piz-side .s-dato-main::before {
+    content: none;
+}
+
+.s-piz-side .s-dato-main > div {
+    grid-column: 2;
+}
+
+.s-piz-side .s-dato-main strong {
+    font-size: 1.8rem;
+}
+
+.s-ico-cal {
+    display: block;
+    width: auto;
+    height: 78px;
+    max-width: 84px;
+    object-fit: contain;
+    pointer-events: none;
+    filter: drop-shadow(0 8px 6px rgba(5,30,55,.28));
+    transform: rotate(-6deg);
+    animation: aulaCalendarFloat 3.8s ease-in-out infinite;
+}
+
+/* Entrada discreta de los dos bloques */
+.s-piz-main,
+.s-piz-side {
+    animation: aulaContentIn .7s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.s-piz-side {
+    animation-delay: .12s;
+}
+
+@keyframes aulaContentIn {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes aulaStampIn {
+    from { opacity: 0; transform: translateY(14px) rotate(1deg) scale(.96); }
+    to { opacity: 1; transform: translateY(0) rotate(5deg) scale(1); }
+}
+
+@keyframes aulaCalendarFloat {
+    0%,100% { translate: 0 0; }
+    50% { translate: 0 -7px; }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .s-pizarra {
+        padding: 84px 0 112px;
+    }
+
+    .s-piz-grid {
+        grid-template-columns: minmax(0,1fr);
+        gap: 54px;
+    }
+
+    .s-piz-main {
+        max-width: 700px;
+    }
+
+    .s-piz-side {
+        grid-template-columns: minmax(145px,190px) minmax(0,1fr);
+        align-items: center;
+        justify-items: stretch;
+        gap: 32px;
+    }
+
+    .s-program-stamp {
+        width: 160px;
+        height: 160px;
+        margin-left: 0 !important;
+        justify-self: center;
+    }
+
+    .s-program-stamp strong {
+        font-size: 4.3rem;
+    }
+
+    .s-piz-side .s-dato-main {
+        grid-template-columns: 76px minmax(0,1fr);
+    }
+
+    .s-ico-cal {
+        height: 68px;
+    }
+}
+
+/* Móvil */
+@media (max-width: 560px) {
+    .s-pizarra {
+        padding: 68px 0 92px;
+    }
+
+    .s-pizarra > .s-wrap {
+        padding: 0 22px;
+    }
+
+    .s-title.s-chalk {
+        font-size: clamp(2.6rem, 12vw, 3.5rem);
+    }
+
+    .s-piz-lead {
+        font-size: 1.18rem;
+    }
+
+    .s-piz-side {
+        grid-template-columns: minmax(0,1fr);
+        justify-items: center;
+        gap: 34px;
+    }
+
+    .s-program-stamp {
+        width: 170px;
+        height: 170px;
+    }
+
+    .s-piz-side .s-datos {
+        width: 100%;
+    }
+
+    .s-piz-side .s-dato-main {
+        grid-template-columns: 76px minmax(0,1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s-piz-main,
+    .s-piz-side,
+    .s-program-stamp,
+    .s-ico-cal {
+        animation: none !important;
+    }
+}
+
+/* =========================================
+   SENTARIA AULA — AJUSTE TABLET
+   Entre 561px y 900px
+========================================= */
+
+@media (min-width: 561px) and (max-width: 900px) {
+
+    .s-pizarra {
+        padding: 76px 0 112px;
+    }
+
+    .s-pizarra > .s-wrap {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    /* Contenido principal */
+    .s-piz-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 42px;
+        align-items: start;
+    }
+
+    .s-piz-main {
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .s-title.s-chalk {
+        font-size: clamp(3rem, 7vw, 4.2rem);
+    }
+
+    .s-piz-lead {
+        max-width: 58ch;
+        font-size: 1.25rem;
+    }
+
+    .s-piz-main > p:not(.s-kicker):not(.s-piz-lead):not(.s-estado) {
+        max-width: 68ch;
+    }
+
+    /* Composición secundaria */
+    .s-piz-side {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: stretch;
+        align-items: start;
+        width: 100%;
+        gap: 24px;
+    }
+
+    /* Distintivo de cuarto de primaria */
+    .s-program-stamp {
+        width: 145px;
+        height: 145px;
+        justify-self: center;
+        margin-bottom: 8px;
+    }
+
+    .s-program-stamp strong {
+        font-size: 4rem;
+    }
+
+    .s-program-stamp span {
+        font-size: .78rem;
+    }
+
+    .s-program-stamp small {
+        font-size: .56rem;
+    }
+
+    /* Características distribuidas en dos columnas */
+    .s-piz-side .s-datos {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 28px;
+        row-gap: 0;
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .s-piz-side .s-dato {
+        min-width: 0;
+        align-items: start;
+        padding: 17px 4px;
+    }
+
+    /* Duración ocupa todo el ancho */
+    .s-piz-side .s-dato-main {
+        grid-column: 1 / -1;
+        grid-template-columns: 88px minmax(0, 1fr);
+        width: min(100%, 420px);
+        justify-self: center;
+        padding: 0 0 20px;
+        margin-bottom: 4px;
+    }
+
+    .s-piz-side .s-dato-main strong {
+        font-size: 1.8rem;
+    }
+
+    .s-piz-side .s-dato strong {
+        font-size: 1.15rem;
+    }
+
+    .s-piz-side .s-dato span {
+        font-size: .96rem;
+    }
+
+    .s-ico-cal {
+        height: 68px;
+    }
+
+    /* Bandeja inferior */
+    .s-pizarra::before {
+        left: 32px;
+        transform: scale(.85);
+        transform-origin: left center;
+    }
+}

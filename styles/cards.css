@@ -1,0 +1,398 @@
+/*cards.css*/
+.quick .wrap .qc {
+    --rot: 0deg;
+    --rx: 0deg;
+    --ry: 0deg;
+    --ty: 0px;
+    --mx: 0;
+    --my: 0;
+    --d: 0s;
+    position: relative;
+    overflow: visible;
+    display: block;
+    padding: 62px 26px 60px;
+    text-align: center;
+    font-family: "Baloo 2", Nunito, system-ui, sans-serif;
+    border-radius: 26px;
+    background: linear-gradient(90deg, var(--c), var(--c2)) top / 100% 8px no-repeat, #fff;
+    box-shadow: 0 14px 30px rgba(8, 40, 70, .28);
+    transform: rotate(var(--rot)) perspective(900px) translateY(var(--ty)) rotateX(var(--rx)) rotateY(var(--ry));
+    transform-origin: 50% 60%;
+    transition: opacity .7s ease var(--d), translate .7s cubic-bezier(.2, .8, .2, 1) var(--d), transform .5s cubic-bezier(.2, .8, .2, 1), box-shadow .35s ease
+}
+
+.quick .wrap .qc:nth-child(1) {
+    --rot: -1.6deg;
+    --d: 0s;
+    --c: #1B729B;
+    --c2: #20ACC1
+}
+
+.quick .wrap .qc:nth-child(2) {
+    --rot: 1deg;
+    --d: .12s;
+    --c: #20ACC1;
+    --c2: #51C0CD
+}
+
+.quick .wrap .qc:nth-child(3) {
+    --rot: -.8deg;
+    --d: .24s;
+    --c: #F4A817;
+    --c2: #E55A1D
+}
+
+.quick .wrap .qc.tilting {
+    transition: opacity .7s ease var(--d), translate .7s cubic-bezier(.2, .8, .2, 1) var(--d), transform .1s linear, box-shadow .35s ease
+}
+
+.quick .wrap .qc.pre {
+    opacity: 0;
+    translate: 0 48px
+}
+
+.quick .wrap .qc:hover,
+.quick .wrap .qc:focus-visible {
+    --rot: 0deg;
+    --ty: -10px;
+    box-shadow: 0 30px 46px rgba(4, 28, 52, .5)
+}
+
+.quick .wrap .qc::after {
+    content: attr(data-n);
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    z-index: 0;
+    font-family: "Baloo 2", Nunito, system-ui, sans-serif;
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--c);
+    opacity: .12;
+    pointer-events: none;
+    transform: translate(calc(var(--mx) * -7px), calc(var(--my) * -5px));
+    transition: transform .3s ease
+}
+
+.quick .wrap .qc h3,
+.quick .wrap .qc p {
+    position: relative;
+    z-index: 1
+}
+
+.quick .wrap .qc h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    font-family: inherit;
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1.1
+}
+
+.quick .wrap .qc p {
+    max-width: 30ch;
+    margin: 14px auto 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    text-wrap: balance;
+    color: var(--tinta)
+}
+
+.quick .wrap .qc img.qc-ico {
+    --iy: -12deg;
+    --ir: 8deg;
+    position: absolute;
+    z-index: 3;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    display: block;
+    width: auto;
+    height: 88px;
+    margin: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 2px 0 rgba(255, 255, 255, .6)) drop-shadow(0 6px 4px rgba(18, 48, 79, .16)) drop-shadow(0 12px 8px rgba(10, 40, 70, .24));
+    transform: perspective(700px) translate(calc(var(--mx) * 14px), calc(var(--my) * 10px)) rotateX(8deg) rotateY(var(--iy)) rotateZ(var(--ir));
+    transition: transform .3s ease
+}
+
+.quick .wrap .qc:nth-child(1) img.qc-ico {
+    bottom: -32px;
+    left: -22px;
+    --iy: 14deg;
+    --ir: -9deg
+}
+
+.quick .wrap .qc:nth-child(2) img.qc-ico {
+    top: -32px;
+    left: -22px;
+    --iy: 14deg;
+    --ir: -9deg
+}
+
+.quick .wrap .qc:nth-child(3) img.qc-ico {
+    bottom: -32px;
+    right: -22px;
+    --iy: -12deg;
+    --ir: -10deg
+}
+
+.quick .wrap .qc:hover img.qc-ico,
+.quick .wrap .qc:focus-visible img.qc-ico {
+    transform: perspective(700px) translate(calc(var(--mx) * 14px), calc(var(--my) * 10px - 8px)) rotateX(5deg) rotateY(calc(var(--iy) * .6)) rotateZ(var(--ir)) scale(1.1)
+}
+
+@media (max-width: 900px) {
+    .quick .wrap .qc::after {
+        font-size: 3rem
+    }
+
+    .quick .wrap .qc img.qc-ico {
+        height: 80px
+    }
+
+    .quick .wrap .qc:nth-child(1) img.qc-ico,
+    .quick .wrap .qc:nth-child(2) img.qc-ico {
+        left: -14px
+    }
+
+    .quick .wrap .qc:nth-child(3) img.qc-ico {
+        right: -14px
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .quick .wrap .qc,
+    .quick .wrap .qc.tilting,
+    .quick .wrap .qc::after,
+    .quick .wrap .qc img.qc-ico {
+        transition: none
+    }
+
+    .quick .wrap .qc.pre {
+        opacity: 1;
+        translate: none
+    }
+
+    .quick .wrap .qc:hover {
+        --ty: 0px
+    }
+}
+
+.quick .wrap .qc.qc-carton {
+    --c: #E0B93A;
+    --c2: #E0B93A;
+    border-radius: 6px 9px 5px 10px;
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .32 0 0 0 0 .05 0 0 0 .3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+        linear-gradient(135deg, rgba(255, 255, 255, .32), transparent 45%),
+        #F6D660;
+    box-shadow: 0 1px 0 rgba(120, 90, 10, .35), 0 2px 0 rgba(255, 255, 255, .25) inset, 0 14px 30px rgba(8, 40, 70, .3)
+}
+
+.quick .wrap .qc.qc-carton::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 3px solid rgba(27, 114, 155, .8);
+    border-radius: 12px 9px 14px 8px / 9px 13px 8px 14px;
+    pointer-events: none
+}
+
+.quick .wrap .qc.qc-carton:hover,
+.quick .wrap .qc.qc-carton:focus-visible {
+    box-shadow: 0 1px 0 rgba(120, 90, 10, .35), 0 30px 46px rgba(4, 28, 52, .5)
+}
+
+.quick .wrap .qc.qc-carton .num {
+    background: var(--azul);
+    color: #fff
+}
+
+.quick .wrap .qc.qc-carton h3 {
+    position: static
+}
+
+.quick .wrap .qc.qc-carton h3::before,
+.quick .wrap .qc.qc-carton h3::after {
+    content: "";
+    position: absolute;
+    z-index: 4;
+    width: 84px;
+    height: 24px;
+    background: repeating-linear-gradient(45deg, rgba(255, 255, 255, .62) 0 6px, rgba(255, 255, 255, .42) 6px 12px);
+    box-shadow: 0 2px 4px rgba(10, 40, 70, .22)
+}
+
+.quick .wrap .qc.qc-carton h3::before {
+    top: -2px;
+    left: -26px;
+    transform: rotate(-38deg)
+}
+
+.quick .wrap .qc.qc-carton h3::after {
+    top: -2px;
+    right: -26px;
+    transform: rotate(38deg)
+}
+/* =========================================
+   SENTARIA — TARJETAS CON ESTILO DE CARTÓN
+   Diseño unificado y fondo accesible
+========================================= */
+
+/* Superficie común de las tres tarjetas */
+.quick .wrap .qc,
+.quick .wrap .qc.qc-carton {
+    --c: #1B729B;
+    --c2: #20ACC1;
+
+    position: relative;
+    overflow: visible;
+
+    border-radius: 8px 10px 7px 9px;
+
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .18 0 0 0 0 .28 0 0 0 0 .34 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+        linear-gradient(135deg, rgba(255,255,255,.65), transparent 55%),
+        #F3F7F6;
+
+    box-shadow:
+        0 1px 0 rgba(18,48,79,.15),
+        0 2px 0 rgba(255,255,255,.7) inset,
+        0 14px 30px rgba(8,40,70,.22);
+}
+
+/* Borde interior de papel */
+.quick .wrap .qc::before,
+.quick .wrap .qc.qc-carton::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 12px;
+
+    border: 2px solid rgba(27,114,155,.55);
+    border-radius: 12px 9px 14px 8px / 9px 13px 8px 14px;
+
+    pointer-events: none;
+}
+
+/* Numeración decorativa */
+.quick .wrap .qc:nth-child(1),
+.quick .wrap .qc:nth-child(2),
+.quick .wrap .qc:nth-child(3) {
+    --c: #1B729B;
+    --c2: #20ACC1;
+}
+
+.quick .wrap .qc .num {
+    background: var(--azul);
+    color: #fff;
+}
+
+/* Cinta adhesiva en las esquinas superiores */
+.quick .wrap .qc h3 {
+    position: static;
+}
+
+.quick .wrap .qc h3::before,
+.quick .wrap .qc h3::after,
+.quick .wrap .qc.qc-carton h3::before,
+.quick .wrap .qc.qc-carton h3::after {
+    content: "";
+    position: absolute;
+    z-index: 4;
+
+    width: 45px;
+    height: 12px;
+
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,.85) 0 6px,
+        rgba(220,235,237,.8) 6px 12px
+    );
+
+    box-shadow: 0 2px 4px rgba(10,40,70,.18);
+}
+
+.quick .wrap .qc h3::before {
+    top: -3px;
+    left: -23px;
+    transform: rotate(-38deg);
+}
+
+.quick .wrap .qc h3::after {
+    top: -3px;
+    right: -23px;
+    transform: rotate(38deg);
+}
+
+/* Efecto de elevación al interactuar */
+.quick .wrap .qc:hover,
+.quick .wrap .qc:focus-visible,
+.quick .wrap .qc.qc-carton:hover,
+.quick .wrap .qc.qc-carton:focus-visible {
+    box-shadow:
+        0 1px 0 rgba(18,48,79,.15),
+        0 2px 0 rgba(255,255,255,.7) inset,
+        0 30px 46px rgba(4,28,52,.32);
+}
+
+/* Iconos 3D: conservar un tamaño discreto */
+.quick .wrap .qc img.qc-ico {
+    height: 78px;
+}
+
+/* Corazón: esquina inferior izquierda */
+.quick .wrap .qc:nth-child(1) img.qc-ico {
+    top: auto;
+    bottom: -32px;
+    left: -22px;
+    right: auto;
+}
+
+/* Estrella: esquina inferior derecha */
+.quick .wrap .qc:nth-child(2) img.qc-ico {
+    top: auto;
+    bottom: -32px;
+    left: auto;
+    right: -22px;
+    --iy: -12deg;
+    --ir: 9deg;
+}
+
+/* Dado: conserva su posición */
+.quick .wrap .qc:nth-child(3) img.qc-ico {
+    bottom: -32px;
+    right: -22px;
+}
+
+/* Adaptación a tablet */
+@media (max-width: 900px) {
+    .quick .wrap .qc img.qc-ico {
+        height: 72px;
+    }
+
+    .quick .wrap .qc:nth-child(1) img.qc-ico {
+        left: -14px;
+    }
+
+    .quick .wrap .qc:nth-child(2) img.qc-ico,
+    .quick .wrap .qc:nth-child(3) img.qc-ico {
+        right: -14px;
+    }
+}
+
+/* Movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    .quick .wrap .qc:hover,
+    .quick .wrap .qc:focus-visible {
+        --ty: 0px;
+    }
+}

@@ -1,0 +1,172 @@
+/* =========================================
+   SENTARIA — CABECERA DE RUTA DE TRABAJO
+   Tres filas: título, mensaje y explicación
+   Cargar después de sections.css
+========================================= */
+
+/* Anula la distribución anterior en dos columnas */
+.s-ruta .s-ruta-head {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+    width: 100%;
+    margin: 0 0 60px;
+    padding: 0 138px 0 0;
+}
+
+/* Fila 1: etiqueta y título, como "LO QUE APRENDEMOS" */
+.s-ruta .s-ruta-title-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    width: 100%;
+}
+
+.s-ruta .s-ruta-kicker {
+    display: block;
+    margin: 0;
+    color: var(--azul-txt);
+    font-family: var(--f-display, "Baloo 2", Nunito, sans-serif);
+    font-size: .9rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: .105em;
+    text-transform: uppercase;
+}
+
+.s-ruta .s-ruta-title-row .s-title {
+    margin: 0;
+    color: var(--tinta);
+    font-family: var(--f-display, "Baloo 2", Nunito, sans-serif);
+    font-size: clamp(2.25rem, 4.2vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.08;
+}
+
+/* Fila 2: mensaje principal resaltado */
+.s-ruta .s-ruta-lead {
+    max-width: 900px;
+    margin: 27px 0 0;
+    color: var(--tinta);
+    font-family: var(--f-display, "Baloo 2", Nunito, sans-serif);
+    font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.s-ruta .s-ruta-lead .s-mark {
+    --m: rgba(241, 207, 86, .72);
+}
+
+/* Fila 3: explicación */
+.s-ruta .s-ruta-intro {
+    max-width: 76ch;
+    margin: 13px 0 0;
+    color: var(--tinta);
+    font-family: "Baloo 2", Nunito, system-ui, sans-serif;
+    font-size: 1.12rem;
+    font-weight: 500;
+    line-height: 1.55;
+}
+
+/* Lápiz 3D: se conserva como detalle flotante, fuera del flujo */
+.s-ruta .s-ruta-head .s-ico-pencil {
+    position: absolute;
+    z-index: 1;
+    top: 22px;
+    right: 12px;
+    width: auto;
+    height: 88px;
+    margin: 0;
+    rotate: 18deg;
+    animation-duration: 3.2s;
+    pointer-events: none;
+}
+
+/* Entrada escalonada y discreta de las tres filas */
+.s-ruta .s-ruta-title-row,
+.s-ruta .s-ruta-lead,
+.s-ruta .s-ruta-intro {
+    opacity: 1;
+    translate: 0 0;
+}
+
+.s-ruta .s-ruta-lead {
+    transition-delay: .08s;
+}
+
+.s-ruta .s-ruta-intro {
+    transition-delay: .16s;
+}
+
+/* Tablet: mantener las tres filas y evitar cruces con el lápiz */
+@media (max-width: 900px) {
+    .s-ruta .s-ruta-head {
+        gap: 0;
+        margin-bottom: 44px;
+        padding-right: 104px;
+    }
+
+    .s-ruta .s-ruta-head .s-ico-pencil {
+        top: 18px;
+        right: 4px;
+        height: 76px;
+    }
+
+    .s-ruta .s-ruta-lead {
+        margin-top: 23px;
+    }
+
+    .s-ruta .s-ruta-intro {
+        margin-top: 11px;
+    }
+}
+
+/* Móvil: el lápiz pasa a una esquina superior y deja libre el texto */
+@media (max-width: 560px) {
+    .s-ruta .s-ruta-head {
+        margin-bottom: 36px;
+        padding-right: 0;
+    }
+
+    .s-ruta .s-ruta-title-row {
+        padding-right: 62px;
+    }
+
+    .s-ruta .s-ruta-title-row .s-title {
+        font-size: clamp(2rem, 8vw, 2.65rem);
+    }
+
+    .s-ruta .s-ruta-head .s-ico-pencil {
+        top: 4px;
+        right: 0;
+        height: 58px;
+    }
+
+    .s-ruta .s-ruta-lead {
+        margin-top: 22px;
+        font-size: 1.35rem;
+        line-height: 1.3;
+    }
+
+    .s-ruta .s-ruta-intro {
+        margin-top: 10px;
+        font-size: 1.04rem;
+        line-height: 1.5;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s-ruta .s-ruta-head .s-ico-pencil {
+        animation: none;
+    }
+
+    .s-ruta .s-ruta-lead,
+    .s-ruta .s-ruta-intro {
+        transition: none;
+    }
+}

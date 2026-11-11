@@ -1,0 +1,164 @@
+/* =========================================
+   SENTARIA — PANTALLA DE CARGA
+   Fondo luminoso y limpio
+========================================= */
+
+html.loading {
+    overflow: hidden;
+}
+
+#loader {
+    --bg: #F4F9FB;
+
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+
+    display: grid;
+    place-items: center;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(32, 172, 193, .13) 0%,
+            rgba(32, 172, 193, .06) 35%,
+            transparent 70%
+        ),
+        linear-gradient(
+            145deg,
+            #FFFFFF 0%,
+            #F4F9FB 55%,
+            #EAF6FB 100%
+        );
+
+    transition: opacity .3s ease;
+}
+
+/* Salida del loader */
+#loader.out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Halo suave detrás del logo */
+#loader::before {
+    content: "";
+    position: absolute;
+
+    width: min(70vw, 360px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(32, 172, 193, .13) 0%,
+        rgba(32, 172, 193, .06) 45%,
+        transparent 72%
+    );
+
+    pointer-events: none;
+}
+
+/* Escenario */
+#loader .stage {
+    position: relative;
+    z-index: 1;
+
+    width: min(40vw, 200px);
+
+    visibility: hidden;
+
+    /* Eliminamos el resplandor y la sombra anterior */
+    filter: none;
+}
+
+#loader.ready .stage {
+    visibility: visible;
+}
+
+/* Logo */
+#loader .markwrap {
+    overflow: hidden;
+}
+
+#loader .mark {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Letras */
+#loader .letters {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 10px;
+}
+
+#loader .letters img {
+    display: block;
+    height: auto;
+    opacity: 0;
+    transform-origin: 50% 100%;
+}
+
+/* Dado animado */
+#loader .dice {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    height: auto;
+    opacity: 0;
+
+    pointer-events: none;
+    z-index: 2;
+
+    will-change: transform;
+}
+
+/* Botón saltar */
+#loader .skip {
+    position: absolute;
+    z-index: 3;
+
+    right: 20px;
+    bottom: 20px;
+
+    font: inherit;
+    font-weight: 800;
+
+    background: rgba(255, 255, 255, .65);
+    border: 1.5px solid rgba(27, 114, 155, .3);
+
+    color: var(--tinta, #12304F);
+
+    padding: 7px 16px;
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+#loader .skip:hover,
+#loader .skip:focus-visible {
+    background: #FFFFFF;
+    border-color: var(--azul, #1B729B);
+    transform: translateY(-2px);
+}
+
+/* Adaptación móvil */
+@media (max-width: 600px) {
+    #loader .stage {
+        width: min(58vw, 200px);
+    }
+
+    #loader .skip {
+        right: 16px;
+        bottom: 16px;
+    }
+}

@@ -1,0 +1,530 @@
+/* =========================================================
+   SENTARIA — RUTA DE TRABAJO (ESTILOS COMPLETOS)
+   Archivo autónomo para la sección .s-ruta.
+
+   Cargar después de sections.css y retirar el antiguo
+   ruta-cabecera.css. Conserva el HTML combinado y sections.js.
+========================================================= */
+
+/* Contenedor y superficie de la sección */
+.s-ruta {
+    position: relative;
+    padding: 100px 0 64px;
+    background: var(--claro, #EAF6FB);
+    color: var(--tinta, #12304F);
+    overflow: hidden;
+}
+
+.s-ruta > .s-wrap {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Aparición progresiva controlada por sections.js */
+.s-js .s-ruta .s-rv {
+    opacity: 0;
+    translate: 0 22px;
+    transition:
+        opacity .6s ease var(--d, 0s),
+        translate .6s ease var(--d, 0s);
+}
+
+.s-js .s-ruta .s-rv.s-in {
+    opacity: 1;
+    translate: 0 0;
+}
+
+.s-js:not(.s-ready) .s-ruta .s-rv {
+    animation: sRutaShow .01s 2.5s forwards;
+}
+
+@keyframes sRutaShow {
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+/* ---------------------------------------------------------
+   Cabecera: título + frase destacada + explicación
+--------------------------------------------------------- */
+.s-ruta-head {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    gap: 48px;
+    align-items: center;
+    margin: 0 0 60px;
+}
+
+.s-ruta-head > .s-title {
+    max-width: 11ch;
+    margin: 0;
+    font-family: var(--f-display, "Baloo 2", Nunito, system-ui, sans-serif);
+    font-size: clamp(2rem, 4.2vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.08;
+    color: var(--tinta, #12304F);
+}
+
+.s-ruta-head .s-mark {
+    padding: 0 .12em;
+    margin: 0 -.12em;
+    background: linear-gradient(
+        transparent 58%,
+        var(--m, var(--amarillo, #F1CF56)) 58% 92%,
+        transparent 92%
+    ) no-repeat;
+    background-size: 0 100%;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    transition: background-size .7s ease .3s;
+}
+
+.s-ruta-head.s-in .s-mark,
+html:not(.s-js) .s-ruta-head .s-mark {
+    background-size: 100% 100%;
+}
+
+.s-ruta-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 54ch;
+    padding-right: 54px;
+}
+
+.s-ruta-copy .s-ruta-lead {
+    margin: 0;
+    font-family: var(--f-display, "Baloo 2", Nunito, system-ui, sans-serif);
+    font-size: clamp(1.25rem, 2vw, 1.55rem);
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--tinta, #12304F);
+}
+
+.s-ruta-copy .s-ruta-lead .s-mark {
+    --m: rgba(241, 207, 86, .78);
+}
+
+.s-ruta-copy .s-ruta-intro {
+    max-width: 52ch;
+    margin: 17px 0 0;
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.55;
+    color: var(--tinta, #12304F);
+}
+
+/* Lápiz 3D flotante */
+.s-ruta .s-ico-pencil {
+    position: absolute;
+    z-index: 2;
+    top: -76px;
+    right: 0;
+    display: block;
+    width: auto;
+    height: 86px;
+    pointer-events: none;
+    filter: drop-shadow(0 8px 6px rgba(18, 48, 79, .22));
+    rotate: 18deg;
+    animation: sRutaBob 3.2s ease-in-out infinite;
+}
+
+@keyframes sRutaBob {
+    50% { translate: 0 -7px; }
+}
+
+/* ---------------------------------------------------------
+   Rayuela y distribución de los siete pasos
+--------------------------------------------------------- */
+.s-ruta-body {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 80px;
+    align-items: start;
+}
+
+.s-ruta .s-patio {
+    position: relative;
+    width: fit-content;
+    padding: 36px 44px;
+    background-color: #8DB8CD;
+    background-image: radial-gradient(
+        rgba(18, 48, 79, .1) 1px,
+        transparent 1.6px
+    );
+    background-size: 9px 9px;
+    border-radius: 4px;
+}
+
+.s-ruta .s-rayuela {
+    display: grid;
+    grid-template-columns: repeat(4, 36px);
+    grid-auto-rows: 72px;
+}
+
+.s-ruta .s-casilla {
+    appearance: none;
+    display: grid;
+    place-items: center;
+    min-width: 0;
+    margin: -2px;
+    padding: 0;
+    background: transparent;
+    border: 4px solid #fff;
+    border-radius: 3px 6px 4px 5px;
+    font-family: var(--f-display, "Baloo 2", Nunito, system-ui, sans-serif);
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--tinta, #12304F);
+    cursor: pointer;
+    transition: background-color .2s ease, color .2s ease, transform .2s ease;
+}
+
+.s-ruta .s-casilla:hover {
+    background: rgba(255, 255, 255, .35);
+}
+
+.s-ruta .s-casilla:active {
+    transform: scale(.96);
+}
+
+.s-ruta .s-casilla[aria-selected="true"] {
+    background: var(--c, var(--azul, #1B729B));
+    color: var(--k, var(--tinta, #12304F));
+}
+
+.s-ruta .s-casilla:focus-visible {
+    outline: 3px solid var(--naranja, #E55A1D);
+    outline-offset: 4px;
+    z-index: 2;
+}
+
+.s-ruta .s-casilla:nth-child(1) { grid-column: 2 / 4; }
+.s-ruta .s-casilla:nth-child(2) { grid-column: 2 / 4; }
+.s-ruta .s-casilla:nth-child(3) { grid-column: 1 / 3; }
+.s-ruta .s-casilla:nth-child(4) { grid-column: 3 / 5; }
+.s-ruta .s-casilla:nth-child(5) { grid-column: 2 / 4; }
+.s-ruta .s-casilla:nth-child(6) { grid-column: 1 / 3; }
+.s-ruta .s-casilla:nth-child(7) { grid-column: 3 / 5; }
+
+/* Piedra que se desplaza según sections.js */
+.s-ruta .s-piedra {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 26px;
+    height: 22px;
+    margin: -11px 0 0 -13px;
+    border-radius: 50% 45% 55% 50%;
+    background: radial-gradient(circle at 35% 30%, #8FA0AE, #3E4C58);
+    box-shadow: 0 4px 3px rgba(0, 0, 0, .35);
+    pointer-events: none;
+    translate: var(--x, 0) var(--y, 0);
+}
+
+.s-ruta .s-piedra.ready {
+    transition: translate .5s cubic-bezier(.4, 0, .2, 1);
+}
+
+.s-ruta .s-piedra.hop {
+    animation: sRutaHop .5s ease;
+}
+
+@keyframes sRutaHop {
+    40% {
+        scale: 1.25;
+        rotate: 40deg;
+    }
+}
+
+/* ---------------------------------------------------------
+   Paneles de contenido
+--------------------------------------------------------- */
+.s-ruta .s-panels {
+    min-height: 21rem;
+}
+
+.s-ruta .s-panel {
+    max-width: 54ch;
+}
+
+.s-ruta .s-panel[hidden] {
+    display: none !important;
+}
+
+.s-ruta .s-panel:not([hidden]) {
+    animation: sRutaPanelIn .4s ease;
+}
+
+@keyframes sRutaPanelIn {
+    from {
+        opacity: 0;
+        translate: 0 14px;
+    }
+}
+
+.s-ruta .s-paso-n {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    width: fit-content;
+    margin: 0;
+    padding-bottom: 4px;
+    border-bottom: 8px solid var(--c, var(--azul, #1B729B));
+    font-family: var(--f-display, "Baloo 2", Nunito, system-ui, sans-serif);
+    font-size: clamp(3.6rem, 7vw, 5.6rem);
+    font-weight: 800;
+    line-height: .95;
+    color: var(--tinta, #12304F);
+}
+
+.s-ruta .s-paso-n span {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--azul-txt, #14607F);
+}
+
+.s-ruta .s-paso-t {
+    margin: 14px 0 0;
+    font-family: var(--f-display, "Baloo 2", Nunito, system-ui, sans-serif);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--tinta, #12304F);
+}
+
+.s-ruta .s-paso-s {
+    margin: 2px 0 0;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--azul-txt, #14607F);
+}
+
+.s-ruta .s-paso-d {
+    margin: 16px 0 0;
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: var(--tinta, #12304F);
+}
+
+.s-ruta .s-paso-p {
+    margin: 18px 0 0;
+    padding-left: 16px;
+    border-left: 5px solid var(--c, var(--azul, #1B729B));
+    font-weight: 800;
+    color: var(--azul-txt, #14607F);
+}
+
+/* Navegación anterior / siguiente */
+.s-ruta .s-pasos-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-top: 24px;
+}
+
+.s-ruta .s-pasos-nav button {
+    padding: 4px 0;
+    background: none;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    font: inherit;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--azul-txt, #14607F);
+    cursor: pointer;
+    transition: border-color .2s ease, color .2s ease;
+}
+
+.s-ruta .s-pasos-nav button:hover,
+.s-ruta .s-pasos-nav button:focus-visible {
+    color: var(--azul, #1B729B);
+    border-bottom-color: var(--cian, #20ACC1);
+}
+
+.s-ruta .s-nota {
+    max-width: 62ch;
+    margin: 56px 0 0;
+    padding-left: 16px;
+    border-left: 5px solid var(--coral, #E57D5E);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--tinta, #12304F);
+}
+
+/* ---------------------------------------------------------
+   Tablet: cabecera apilada y rayuela sobre el contenido
+--------------------------------------------------------- */
+@media (max-width: 900px) {
+    .s-ruta {
+        padding: 72px 0;
+    }
+
+    .s-ruta-head {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+        align-items: start;
+        margin-bottom: 48px;
+    }
+
+    .s-ruta-head > .s-title {
+        max-width: 15ch;
+    }
+
+    .s-ruta-copy {
+        max-width: 66ch;
+        padding-right: 72px;
+    }
+
+    .s-ruta-copy .s-ruta-lead {
+        font-size: 1.35rem;
+    }
+
+    .s-ruta .s-ico-pencil {
+        top: auto;
+        right: 0;
+        bottom: -8px;
+        height: 72px;
+    }
+
+    .s-ruta-body {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 36px;
+        justify-items: start;
+    }
+
+    .s-ruta .s-patio {
+        justify-self: center;
+    }
+
+    .s-ruta .s-panels {
+        min-height: 0;
+    }
+
+    .s-ruta .s-panel {
+        max-width: 68ch;
+    }
+
+    .s-ruta .s-nota {
+        margin-top: 42px;
+    }
+}
+
+/* ---------------------------------------------------------
+   Móvil
+--------------------------------------------------------- */
+@media (max-width: 560px) {
+    .s-ruta {
+        padding: 64px 0 72px;
+    }
+
+    .s-ruta > .s-wrap {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .s-ruta-head {
+        gap: 18px;
+        margin-bottom: 38px;
+    }
+
+    .s-ruta-head > .s-title {
+        max-width: 12ch;
+    }
+
+    .s-ruta-copy {
+        padding-right: 0;
+    }
+
+    .s-ruta-copy .s-ruta-lead {
+        font-size: 1.22rem;
+    }
+
+    .s-ruta-copy .s-ruta-intro {
+        margin-top: 12px;
+        font-size: 1rem;
+    }
+
+    .s-ruta .s-ico-pencil {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        justify-self: end;
+        height: 58px;
+        margin-top: -12px;
+    }
+
+    .s-ruta-body {
+        gap: 30px;
+    }
+
+    .s-ruta .s-patio {
+        padding: 26px 30px;
+    }
+
+    .s-ruta .s-rayuela {
+        grid-template-columns: repeat(4, 32px);
+        grid-auto-rows: 64px;
+    }
+
+    .s-ruta .s-casilla {
+        font-size: 1.6rem;
+    }
+
+    .s-ruta .s-paso-n {
+        font-size: clamp(3.2rem, 15vw, 4.4rem);
+    }
+
+    .s-ruta .s-paso-t {
+        font-size: clamp(1.55rem, 7vw, 2rem);
+    }
+
+    .s-ruta .s-paso-d {
+        font-size: 1.02rem;
+    }
+
+    .s-ruta .s-pasos-nav {
+        gap: 22px;
+    }
+
+    .s-ruta .s-nota {
+        margin-top: 36px;
+    }
+}
+
+/* Accesibilidad: reducir movimiento sin ocultar contenido */
+@media (prefers-reduced-motion: reduce) {
+    .s-js .s-ruta .s-rv,
+    .s-js .s-ruta .s-rv.s-in {
+        opacity: 1;
+        translate: 0 0;
+        transition: none;
+        animation: none;
+    }
+
+    .s-ruta .s-ico-pencil,
+    .s-ruta .s-piedra.hop,
+    .s-ruta .s-panel:not([hidden]) {
+        animation: none;
+    }
+
+    .s-ruta .s-piedra.ready,
+    .s-ruta .s-casilla,
+    .s-ruta .s-pasos-nav button {
+        transition: none;
+    }
+
+    .s-ruta-head .s-mark {
+        background-size: 100% 100%;
+        transition: none;
+    }
+}
+
