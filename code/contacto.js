@@ -7,7 +7,7 @@
     var ok = document.getElementById('ct-ok');
     var btn = document.getElementById('ct-send');
     var label = btn.querySelector('.ct-send-txt');
-    var ENDPOINT = 'https://formsubmit.co/ajax/yennykaterine08@gmail.com';
+    var ENDPOINT = 'https://formsubmit.co/ajax/7f69d3b1923b6fe17c86a48f19314bc0';
 
     function fail(msg) {
         error.textContent = msg;
