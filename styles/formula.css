@@ -7,24 +7,19 @@
     --eq-ink: var(--tinta, #12304F);
 
     position: relative;
+    isolation: isolate;
     width: fit-content;
     max-width: 100%;
     margin: 28px 0 0;
-    padding: 12px 2px 14px;
-    color: var(--eq-ink);
-}
+    padding: 18px 24px 18px 22px;
+    box-sizing: border-box;
 
-/* Línea sutil debajo de toda la composición */
-.story-equation::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 4%;
-    bottom: 0;
-    height: 2px;
-    border-radius: 50%;
-    transform: rotate(-.45deg);
-    transform-origin: left center;
+    color: var(--eq-ink);
+    background: #fffdf8;
+    border: 1px solid rgba(18, 48, 79, .14);
+    border-left: 4px solid var(--naranja, #E55A1D);
+    border-radius: 4px 16px 16px 4px;
+    box-shadow: 0 10px 26px -16px rgba(18, 48, 79, .24);
 }
 
 /* Primera fila: conceptos */
@@ -32,27 +27,54 @@
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    column-gap: 9px;
-    row-gap: 5px;
+    column-gap: 10px;
+    row-gap: 6px;
 }
 
-/* Palabras */
+/* Palabras con trazo sutil tipo resaltador */
 .story-equation-term {
     position: relative;
+    z-index: 1;
     display: inline-block;
-    padding: 0 1px 5px;
+    padding: 0 3px;
 
     font-family: "Baloo 2", Nunito, system-ui, sans-serif;
-    font-size: clamp(1.08rem, 1.8vw, 1.32rem);
+    font-size: clamp(1.14rem, 1.85vw, 1.36rem);
     font-weight: 800;
-    line-height: 1.15;
+    line-height: 1.2;
 
     color: var(--eq-ink);
-
-    transition: transform .24s ease;
+    transition: transform .22s ease;
 }
 
-/* Signos de suma */
+.story-equation-term::after {
+    content: "";
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    bottom: 2px;
+    height: .38em;
+    z-index: -1;
+    border-radius: 3px 6px 4px 5px;
+    transition: height .22s ease;
+}
+
+.story-equation-psych::after {
+    background: rgba(56, 178, 218, .28);
+    transform: rotate(-1deg);
+}
+
+.story-equation-edu::after {
+    background: rgba(255, 206, 56, .45);
+    transform: rotate(.7deg);
+}
+
+.story-equation-play::after {
+    background: rgba(64, 186, 122, .28);
+    transform: rotate(-.8deg);
+}
+
+/* Signos de suma e igual */
 .story-equation-plus,
 .story-equation-equals {
     font-family: "Gochi Hand", cursive;
@@ -63,26 +85,45 @@
 
 .story-equation-plus {
     display: inline-block;
-    font-size: 1.65rem;
-    transform: rotate(-7deg);
-    transition: transform .24s ease;
+    font-size: 1.6rem;
+    transform: rotate(-6deg);
+    transition: transform .22s ease;
 }
 
 /* Segunda fila: resultado */
 .story-equation-result {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-top: 8px;
+    gap: 12px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(18, 48, 79, .12);
 }
 
 .story-equation-equals {
     display: inline-block;
-    font-size: 2.15rem;
-    transform: rotate(-8deg);
+    font-size: 2.05rem;
+    transform: rotate(-7deg);
 }
 
-/* SENTARIA como resultado destacado */
+/* Logo SENTARIA destacado */
+.story-equation-result .logo {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    transition: transform .24s ease;
+}
+
+.story-equation-result .logo img {
+    display: block;
+    width: auto;
+    height: clamp(28px, 3.4vw, 34px);
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Respaldo por si se usa texto <strong> */
 .story-equation-result strong {
     display: inline-block;
     padding: 0 .12em .02em;
@@ -94,37 +135,33 @@
     letter-spacing: .055em;
 
     color: var(--azul-txt, #14607F);
-
-    transition: transform .25s ease;
+    transition: transform .24s ease;
 }
 
 /* =========================================
    INTERACCIONES
 ========================================= */
 
-.story-equation:hover .story-equation-psych,
-.story-equation:focus-within .story-equation-psych {
-    transform: translateY(-3px) rotate(-1deg);
+.story-equation:hover .story-equation-term,
+.story-equation:focus-within .story-equation-term {
+    transform: translateY(-1px);
 }
 
-.story-equation:hover .story-equation-edu,
-.story-equation:focus-within .story-equation-edu {
-    transform: translateY(-4px) rotate(1deg);
-}
-
-.story-equation:hover .story-equation-play,
-.story-equation:focus-within .story-equation-play {
-    transform: translateY(-3px) rotate(-1deg);
+.story-equation:hover .story-equation-term::after,
+.story-equation:focus-within .story-equation-term::after {
+    height: .48em;
 }
 
 .story-equation:hover .story-equation-plus,
 .story-equation:focus-within .story-equation-plus {
-    transform: rotate(8deg) scale(1.12);
+    transform: rotate(6deg) scale(1.08);
 }
 
+.story-equation:hover .story-equation-result .logo,
+.story-equation:focus-within .story-equation-result .logo,
 .story-equation:hover .story-equation-result strong,
 .story-equation:focus-within .story-equation-result strong {
-    transform: translateY(-2px);
+    transform: translateX(2px);
 }
 
 /* =========================================
@@ -133,16 +170,22 @@
 
 @media (max-width: 560px) {
     .story-equation {
+        width: 100%;
         margin-top: 22px;
+        padding: 15px 16px;
     }
 
     .story-equation-terms {
-        column-gap: 7px;
-        row-gap: 8px;
+        column-gap: 8px;
+        row-gap: 6px;
     }
 
     .story-equation-term {
         font-size: 1.12rem;
+    }
+
+    .story-equation-result .logo img {
+        height: 27px;
     }
 }
 
@@ -152,7 +195,9 @@
 
 @media (prefers-reduced-motion: reduce) {
     .story-equation-term,
+    .story-equation-term::after,
     .story-equation-plus,
+    .story-equation-result .logo,
     .story-equation-result strong {
         transition: none;
     }
@@ -161,6 +206,8 @@
     .story-equation:focus-within .story-equation-term,
     .story-equation:hover .story-equation-plus,
     .story-equation:focus-within .story-equation-plus,
+    .story-equation:hover .story-equation-result .logo,
+    .story-equation:focus-within .story-equation-result .logo,
     .story-equation:hover .story-equation-result strong,
     .story-equation:focus-within .story-equation-result strong {
         transform: none;

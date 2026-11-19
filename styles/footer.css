@@ -5,8 +5,6 @@
 .s-footer {
     position: relative;
     overflow: hidden;
-    margin-top: clamp(70px, 9vw, 120px);
-    padding: 0 0 25px;
     background: #12304F;
     color: #F4F8FA;
     border-top: 5px solid #20ACC1;
@@ -204,7 +202,6 @@
 @media (max-width: 650px) {
 
     .s-footer {
-        margin-top: 65px;
         padding-bottom: 20px;
     }
 

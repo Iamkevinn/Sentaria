@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="styles/ruta-cabecera.css">
     <link rel="stylesheet" href="styles/cab.css">
     <link rel="stylesheet" href="styles/scroll-3d.css">
+    <link rel="stylesheet" href="styles/contacto.css">
     <noscript>
         <style>
             #loader {
@@ -211,7 +212,7 @@
                         </div>
                         <div class="story-equation-result">
                             <span class="story-equation-equals" aria-hidden="true">=</span>
-                            <span  class="logo"><img style="height: 20px !important;" src="media/Logo_texto_2.png" alt="SENTARIA"></span>
+                            <span  class="logo"><img src="media/Logo_texto_2.png" alt="SENTARIA"></span>
                         </div>
                     </div>
 
@@ -399,6 +400,10 @@
                         <span>Cada grupo es diferente. <br> Nuestra metodología también debe reconocerlo.</span>
                     </p>
 
+                    <div class="parallax-scene ruta-scene" aria-hidden="true">
+                        <img class="section-object ruta-books" src="media/content/books-and-apple.png" alt="">
+                    </div>
+
                 </div>
 
 
@@ -515,20 +520,62 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-
-        <section id="contacto" class="s-cierre">
-            <div class="s-wrap">
-                <div class="s-corte s-rv">
-                    <h2 class="s-title">¡Construyamos oportunidades para aprender!</h2>
-                    <br>
-                    <p>Queremos escuchar a instituciones educativas, profesionales y organizaciones interesadas en
-                        promover el aprendizaje socioemocional.</p>
-                    <p class="s-pend">Canales oficiales de contacto: próximamente.</p>
-                </div>
+            <div class="parallax-scene ruta-hands-scene" aria-hidden="true">
+                <img class="section-object ruta-hands-bg" src="media/content/hands-holding-a-heart-in-the-colors-the-flag-of-indonesian.png" alt="">
             </div>
         </section>
+
+        <section id="contacto" class="ct">
+            <div class="ct-scene parallax-scene" aria-hidden="true">
+                <img class="section-object ct-puzzle" src="media/content/3dicons-puzzle-dynamic-color.png" alt="">
+            </div>
+            <div class="s-wrap ct-grid">
+                <div class="ct-info s-rv">
+                    <span class="ct-kicker">CONTACTO</span>
+                    <h2 class="ct-title">¡<span class="ct-cut">Construyamos</span> oportunidades para aprender!</h2>
+                    <p class="ct-lead">Queremos escuchar a instituciones educativas, profesionales y organizaciones interesadas en promover el aprendizaje socioemocional.</p>
+                    <div class="ct-duo parallax-scene" aria-hidden="true">
+                        <img class="section-object ct-analysis" src="media/content/social-media-analysis_2.png" alt="">
+                        <img class="section-object ct-hands" src="media/content/cute-giraffe-painting-on-canvas.png" alt="">
+                    </div>
+                </div>
+
+                <form class="ct-form s-rv" id="ct-form" style="--d:.12s" novalidate>
+                    <h3 class="ct-form-title">Escríbenos</h3>
+
+                    <div class="ct-field">
+                        <label for="ct-nombre">Nombre</label>
+                        <input id="ct-nombre" name="name" type="text" autocomplete="name" required placeholder="Tu nombre">
+                    </div>
+
+                    <div class="ct-field">
+                        <label for="ct-correo">Correo de respuesta</label>
+                        <input id="ct-correo" name="email" type="email" autocomplete="email" required placeholder="tucorreo@ejemplo.com">
+                    </div>
+
+                    <div class="ct-field">
+                        <label for="ct-asunto">Asunto</label>
+                        <input id="ct-asunto" name="asunto" type="text" required placeholder="¿De qué se trata?">
+                    </div>
+
+                    <div class="ct-field">
+                        <label for="ct-mensaje">Mensaje</label>
+                        <textarea id="ct-mensaje" name="message" rows="4" required placeholder="¿En qué podemos ayudarte?"></textarea>
+                    </div>
+
+                    <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
+
+                    <p class="ct-error" id="ct-error" role="alert" hidden></p>
+                    <p class="ct-ok" id="ct-ok" role="status" hidden>¡Mensaje enviado! Te responderemos pronto.</p>
+
+                    <button class="ct-send" id="ct-send" type="submit">
+                        <span class="ct-send-txt">Enviar</span>
+                        <span aria-hidden="true">→</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+        
 
     </main>
     <footer class="s-footer">
@@ -606,6 +653,7 @@
     <script src="code/hero-parallax.js"></script>
     <script src="code/sections.js"></script>
     <script src="code/scroll-3d.js"></script>
+    <script src="code/contacto.js"></script>
 </body>
 
 </html>
